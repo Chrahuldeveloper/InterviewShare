@@ -1,10 +1,11 @@
 import React from 'react'
-import { SignUp } from './Pages'
+import { Home, SignUp } from './Pages'
 
 export default function App() {
   return (
     <>
-     <SignUp/> 
+     {/* <SignUp/>  */}
+     <Home/> 
     </>
   )
 }
