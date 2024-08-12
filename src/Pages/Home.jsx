@@ -1,10 +1,11 @@
 import React from 'react'
-import { Navbar } from '../components'
+import { Navbar, TrendingExperience } from '../components'
 
 export default function Home() {
   return (
     <>
       <Navbar/>
+      <TrendingExperience/>
     </>
   )
 }
