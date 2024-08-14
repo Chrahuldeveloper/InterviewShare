@@ -1,7 +1,13 @@
 import React from "react";
-import { Home, Profile, ReadFullExperience, SignUp } from "./Pages";
+import {
+  Home,
+  Profile,
+  ReadFullBlog,
+  ReadFullExperience,
+  SignUp,
+} from "./Pages";
 import { Route, Routes } from "react-router-dom";
-import "./App.css"
+import "./App.css";
 export default function App() {
   return (
     <Routes>
@@ -9,6 +15,7 @@ export default function App() {
       <Route path="/home" element={<Home />} />
       <Route path="/interview/:id" element={<ReadFullExperience />} />
       <Route path="/user/:userid" element={<Profile />} />
+      <Route path="/blog/:blogid" element={<ReadFullBlog />} />
     </Routes>
-);
+  );
 }
