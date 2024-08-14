@@ -1,12 +1,13 @@
-import React from 'react'
-import { Home, ReadFullExperience, SignUp } from './Pages'
+import React from "react";
+import { Home, ReadFullExperience, SignUp } from "./Pages";
+import { Route, Routes } from "react-router-dom";
 
 export default function App() {
   return (
-    <>
-     {/* <SignUp/>  */}
-     {/* <Home/>  */}
-     <ReadFullExperience/>
-    </>
-  )
+    <Routes>
+      <Route path="/" element={<SignUp />} />
+      <Route path="/home" element={<Home />} />
+      <Route path="/interview/:id" element={<ReadFullExperience />} />
+    </Routes>
+  );
 }
