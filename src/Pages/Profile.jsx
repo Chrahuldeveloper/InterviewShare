@@ -157,7 +157,7 @@ export default function Profile() {
             <button className="px-4 py-2.5 text-sm font-semibold text-black duration-500 ease-in-out border-[1px] border-blue-500 rounded-lg 0 hover:bg-blue-500 hover:text-white">
               Share experience
             </button>
-            <button className="col-span-2 px-4 py-2 text-sm font-semibold text-white duration-500 ease-in-out bg-blue-500 rounded-lg">
+            <button className="col-span-2 px-4 py-2.5 text-sm font-semibold text-white duration-500 ease-in-out bg-blue-500 rounded-lg">
               Edit Profile
             </button>
           </div>
