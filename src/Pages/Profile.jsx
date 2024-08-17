@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar } from "../components";
+import { EditModel, Navbar } from "../components";
 
 export default function Profile() {
   const data = [
@@ -129,7 +129,7 @@ export default function Profile() {
   return (
     <div className="overflow-x-scroll">
       <Navbar profile={true} />
-      <div
+      <div 
         className="w-[90vw] h-56 mx-auto mt-5 rounded-lg"
         style={{
           backgroundImage: `url('https://marketplace.canva.com/EAE2cQaUHVA/1/0/400w/canva-black-minimal-motivation-quote-linkedin-banner-6a_M22OYl6w.jpg')`,
@@ -241,6 +241,7 @@ export default function Profile() {
           })}
         </div>
       </div>
+      <EditModel/>
     </div>
   );
 }
