@@ -18,6 +18,8 @@ export default function TrendingExperience() {
       ProfilePic: "https://files.codingninjas.com/gen-assets/AN/8.png",
       interviewPlace: "on campus",
       collage: "CMRCET",
+      Likes: 10,
+      upvotes: 10,
     },
     {
       company: "Amazon",
@@ -35,6 +37,8 @@ export default function TrendingExperience() {
       ProfilePic: "https://files.codingninjas.com/gen-assets/AN/8.png",
       interviewPlace: "on campus",
       collage: "CMRCET",
+      Likes: 10,
+      upvotes: 10,
     },
     {
       company: "Amazon",
@@ -52,6 +56,8 @@ export default function TrendingExperience() {
       ProfilePic: "https://files.codingninjas.com/gen-assets/AN/8.png",
       interviewPlace: "on campus",
       collage: "CMRCET",
+      Likes: 10,
+      upvotes: 10,
     },
     {
       company: "Amazon",
@@ -69,6 +75,8 @@ export default function TrendingExperience() {
       ProfilePic: "https://files.codingninjas.com/gen-assets/AN/8.png",
       interviewPlace: "on campus",
       collage: "CMRCET",
+      Likes: 10,
+      upvotes: 10,
     },
     {
       company: "Amazon",
@@ -86,6 +94,8 @@ export default function TrendingExperience() {
       ProfilePic: "https://files.codingninjas.com/gen-assets/AN/8.png",
       interviewPlace: "on campus",
       collage: "CMRCET",
+      Likes: 10,
+      upvotes: 10,
     },
     {
       company: "Amazon",
@@ -103,6 +113,8 @@ export default function TrendingExperience() {
       ProfilePic: "https://files.codingninjas.com/gen-assets/AN/8.png",
       interviewPlace: "on campus",
       collage: "CMRCET",
+      Likes: 10,
+      upvotes: 10,
     },
   ];
 

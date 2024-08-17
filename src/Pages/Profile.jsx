@@ -113,7 +113,6 @@ export default function Profile() {
       para: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore ex magni soluta! Ullam, distinctio? Itaque impedit ab sint culpa ad!",
       img: "https://images.pexels.com/photos/22708188/pexels-photo-22708188/free-photo-of-man-fishing-on-seashore-with-dog.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
     },
-
     {
       tittle: "Lorem, ipsum dolor Lorem, ipsum dolor",
       para: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore ex magni soluta! Ullam, distinctio? Itaque impedit ab sint culpa ad!",
@@ -131,7 +130,7 @@ export default function Profile() {
     <div className="overflow-x-scroll">
       <Navbar profile={true} />
       <div
-        className="w-full h-64"
+        className="w-[90vw] h-56 mx-auto mt-5 rounded-lg"
         style={{
           backgroundImage: `url('https://marketplace.canva.com/EAE2cQaUHVA/1/0/400w/canva-black-minimal-motivation-quote-linkedin-banner-6a_M22OYl6w.jpg')`,
           backgroundSize: "cover",
@@ -140,12 +139,17 @@ export default function Profile() {
       ></div>
       <div className="-translate-y-10">
         <img
-          className="object-cover w-32 h-32 mx-auto rounded-full"
+          className="object-cover w-32 h-32 mx-auto duration-300 ease-in-out rounded-full hover:brightness-75"
           src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=600"
           alt=""
         />
-        <div className="mt-4 space-y-3 text-center">
+        <div className="mt-4 space-y-5 text-center">
           <h1 className="text-lg font-semibold text-slate-800">Rahul</h1>
+          <p className="max-w-md mx-auto text-center text-slate-500">
+            {
+              "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem in, laboriosam maxime similique impedit incidunt?"
+            }
+          </p>
           <button className="px-20 py-2 text-sm font-semibold text-white duration-500 ease-in-out bg-blue-500 rounded-lg">
             Edit Profile
           </button>

@@ -4,21 +4,21 @@ import { FaGoogle } from "react-icons/fa";
 export default function SignupForm() {
   return (
     <div className=" max-w-md mx-auto mt-8 border-[1px] p-8 border-gray-300 rounded-lg">
-      <div className="text-slate-800 space-y-4">
+      <div className="space-y-4 text-slate-800">
         <h1 className="text-2xl font-bold">SignUp</h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
       </div>
       <form className="mt-4 space-y-6">
-        <div className="space-y-3 flex flex-col">
-          <label className="text-slate-800 font-semibold">Email</label>
+        <div className="flex flex-col space-y-3">
+          <label className="font-semibold text-slate-800">Email</label>
           <input
             type="text"
             placeholder="Email"
             className="border-[1px] border-gray-300 py-3 px-2 rounded-lg outline-none"
           />
         </div>
-        <div className="space-y-3 flex flex-col">
-          <label className="text-slate-800 font-semibold">Password</label>
+        <div className="flex flex-col space-y-3">
+          <label className="font-semibold text-slate-800">Password</label>
           <input
             type="text"
             placeholder="Password"
@@ -33,7 +33,7 @@ export default function SignupForm() {
       </form>
 
       <div className="my-6">
-        <h1 className="text-center text-gray-400 font-semibold">
+        <h1 className="font-semibold text-center text-gray-400">
           --Or Sign Up using--
         </h1>
         <div className="flex justify-center mt-4 border-[1px] w-14 h-14 items-center rounded-full mx-auto p-4">
@@ -44,7 +44,7 @@ export default function SignupForm() {
       <div className="text-center">
         <p>
           Already a User?
-          <span className="text-blue-500 font-bold"> Login</span>
+          <span className="font-bold text-blue-500"> Login</span>
         </p>
       </div>
     </div>
