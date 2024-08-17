@@ -27,7 +27,11 @@ export default function TrendingExperience() {
 
   return (
     <>
-      <div className="md:-mt-32 md:ml-16 md:max-w-3xl">
+      <div
+        className={` ${
+          data.length > 0 ? " md:-mt-32" : "md:mt-14"
+        } md:ml-16 md:max-w-3xl`}
+      >
         <div className="flex items-center justify-between px-5 mx-0 ">
           <div className="space-y-2 w-96">
             <h1 className="text-lg font-semibold md:text-xl text-slate-800">
@@ -95,9 +99,8 @@ export default function TrendingExperience() {
               </React.Fragment>
             ))
           ) : (
-            <div >
+            <div>
               <Empty />
-
             </div>
           )}
         </div>
