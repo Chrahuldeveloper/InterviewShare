@@ -150,9 +150,17 @@ export default function Profile() {
               "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem in, laboriosam maxime similique impedit incidunt?"
             }
           </p>
-          <button className="px-20 py-2 text-sm font-semibold text-white duration-500 ease-in-out bg-blue-500 rounded-lg">
-            Edit Profile
-          </button>
+          <div className="grid max-w-md grid-cols-2 gap-3 mx-auto lg:max-w-lg">
+            <button className="px-5 py-2.5 text-sm font-semibold text-black duration-500 ease-in-out border-[1px] border-blue-500 rounded-lg hover:bg-blue-500  hover:text-white">
+              Upload Blog
+            </button>
+            <button className="px-4 py-2.5 text-sm font-semibold text-black duration-500 ease-in-out border-[1px] border-blue-500 rounded-lg 0 hover:bg-blue-500 hover:text-white">
+              Share experience
+            </button>
+            <button className="col-span-2 px-4 py-2 text-sm font-semibold text-white duration-500 ease-in-out bg-blue-500 rounded-lg">
+              Edit Profile
+            </button>
+          </div>
         </div>
       </div>
       <div className="md:ml-28">

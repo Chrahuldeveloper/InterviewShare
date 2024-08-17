@@ -46,7 +46,6 @@ export default function TrendingExperience() {
         setLoading(false);
       }
     };
-
     fetchInterviews();
   }, []);
 
@@ -60,16 +59,13 @@ export default function TrendingExperience() {
           return salaryRange === selectedSalary;
         });
       }
-
       if (selectedLocation !== "All") {
         filtered = filtered.filter(
           (item) => item.location === selectedLocation
         );
       }
-
       setFilteredData(filtered);
     };
-
     filterData();
   }, [data, selectedSalary, selectedLocation]);
 
