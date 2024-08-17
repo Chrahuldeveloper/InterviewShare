@@ -5,6 +5,7 @@ import Companies from "./Companies";
 import PopularInterview from "./PopularInterview";
 import EditModel from "./EditModel";
 import Empty from "./Empty";
+import UploadExperience from "./UploadExperience";
 
 export {
   SignupForm,
@@ -14,4 +15,5 @@ export {
   PopularInterview,
   EditModel,
   Empty,
+  UploadExperience
 };

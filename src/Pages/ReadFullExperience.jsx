@@ -84,13 +84,6 @@ export default function ReadFullExperience() {
             For Geeks for interview preparation.
           </p>
         </div>
-        <div className="space-y-2">
-          <h1 className="text-lg font-semibold">Resume tip</h1>
-          <p className="text-sm text-gray-500">
-            Make your resume short and try to make it of one page only and do
-            mention all your skills which you are confident of in your resume.
-          </p>
-        </div>
       </div>
       <TrendingExperience />
     </div>
