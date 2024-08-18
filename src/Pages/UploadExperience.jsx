@@ -50,7 +50,7 @@ export default function UploadExperience({ jwt }) {
   return (
     <>
       <Navbar />
-      <div className="max-w-xl my-5 lg:ml-40">
+      <div className="max-w-xl mx-auto my-5">
         <div>
           <div className="grid grid-cols-2 gap-3 place-items-center">
             <div className="col-span-2">

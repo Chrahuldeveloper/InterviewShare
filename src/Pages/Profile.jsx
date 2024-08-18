@@ -1,5 +1,6 @@
 import React from "react";
 import { EditModel, Navbar } from "../components";
+import { useNavigate } from "react-router-dom";
 
 export default function Profile() {
   const data = [
@@ -126,6 +127,8 @@ export default function Profile() {
     },
   ];
 
+  const navigate = useNavigate();
+
   return (
     <div className="overflow-x-scroll">
       <Navbar profile={true} />
@@ -154,7 +157,12 @@ export default function Profile() {
             <button className="px-5 py-2.5 text-sm font-semibold text-black duration-500 ease-in-out border-[1px] border-blue-500 rounded-lg hover:bg-blue-500  hover:text-white">
               Upload Blog
             </button>
-            <button className="px-4 py-2.5 text-sm font-semibold text-black duration-500 ease-in-out border-[1px] border-blue-500 rounded-lg 0 hover:bg-blue-500 hover:text-white">
+            <button
+              onClick={() => {
+                navigate("/upload/experience");
+              }}
+              className="px-4 py-2.5 text-sm font-semibold text-black duration-500 ease-in-out border-[1px] border-blue-500 rounded-lg 0 hover:bg-blue-500 hover:text-white"
+            >
               Share experience
             </button>
             <button className="col-span-2 px-4 py-2.5 text-sm font-semibold text-white duration-500 ease-in-out bg-blue-500 rounded-lg">

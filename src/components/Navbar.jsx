@@ -17,6 +17,7 @@ export default function Navbar({ profile }) {
           <li className="font-semibold cursor-pointer">Home</li>
           <li className="font-semibold cursor-pointer">About</li>
           <li className="font-semibold cursor-pointer">Contact</li>
+          <li className="font-semibold cursor-pointer">Blogs</li>
           {profile ? null : (
             <Link to="/user/fdnver98gdfvmer9g0">
               <li className="px-6 py-2 font-semibold text-white bg-blue-600 rounded-lg cursor-pointer">
