@@ -405,6 +405,7 @@ export default function TrendingExperience() {
                     <span className="text-sm text-gray-800">
                       Level {i.Level}
                     </span>{" "}
+                    
                     |{" "}
                     {i.selected ? (
                       <div className="flex items-center space-x-1">

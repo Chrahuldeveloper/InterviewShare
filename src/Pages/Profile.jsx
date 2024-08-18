@@ -1,5 +1,5 @@
 import React from "react";
-import { EditModel, Navbar, UploadExperience } from "../components";
+import { EditModel, Navbar } from "../components";
 
 export default function Profile() {
   const data = [
@@ -250,7 +250,6 @@ export default function Profile() {
         </div>
       </div>
       {/* <EditModel/> */}
-      <UploadExperience />
     </div>
   );
 }

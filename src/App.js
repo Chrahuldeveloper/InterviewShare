@@ -5,6 +5,7 @@ import {
   ReadFullBlog,
   ReadFullExperience,
   SignUp,
+  UploadExperience,
 } from "./Pages";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
@@ -16,6 +17,7 @@ export default function App() {
       <Route path="/interview/:id" element={<ReadFullExperience />} />
       <Route path="/user/:userid" element={<Profile />} />
       <Route path="/blog/:blogid" element={<ReadFullBlog />} />
+      <Route path="/upload/experience" element={<UploadExperience />} />
     </Routes>
   );
 }
