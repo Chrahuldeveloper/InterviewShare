@@ -6,7 +6,7 @@ import Loader from "./Loader";
 export default function TrendingExperience() {
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
-  const [showLoader, setShowLoader] = useState(false); 
+  const [showLoader, setShowLoader] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedSalary, setSelectedSalary] = useState("All");
   const [selectedLocation, setSelectedLocation] = useState("All");
@@ -40,18 +40,18 @@ export default function TrendingExperience() {
       try {
         const loaderTimeout = setTimeout(() => {
           setShowLoader(true);
-        }, 1000); 
+        }, 1000);
 
         const response = await axios.get(
           "http://localhost:9000/interviews/trending"
         );
         setData(response.data);
 
-        clearTimeout(loaderTimeout); 
+        clearTimeout(loaderTimeout);
       } catch (error) {
         console.error("Error fetching the interviews:", error);
       } finally {
-        setShowLoader(false); 
+        setShowLoader(false);
       }
     };
 
@@ -114,7 +114,7 @@ export default function TrendingExperience() {
       <div
         className={` ${
           filteredData.length > 0 ? "md:mt-16" : "md:mt-14"
-        } md:ml-16 md:max-w-3xl`}
+        } mx-auto md:max-w-3xl`}
       >
         <div className="flex items-center justify-between px-5 mx-0 ">
           <div className="space-y-2 w-96">
@@ -125,7 +125,6 @@ export default function TrendingExperience() {
               Read more interview experiences and keep yourself up to date
             </p>
           </div>
-         
         </div>
 
         <div className="flex items-center justify-center max-w-md gap-5 mx-auto mt-10 lg:max-w-lg">
@@ -162,7 +161,7 @@ export default function TrendingExperience() {
             paginatedData.map((i, idx) => (
               <div
                 key={idx}
-                className="w-[80vw] md:w-[50vw]  lg:w-[30vw] mx-auto p-5 border-[1px] border-gray-300 rounded-lg"
+                className="w-[80vw] md:w-[50vw]  lg:w-[40vw] mx-auto p-5 border-[1px] border-gray-300 rounded-lg"
               >
                 <div className="flex items-center justify-between">
                   <h1 className="text-lg font-semibold">

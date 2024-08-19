@@ -26,7 +26,7 @@ export default function PopularInterview() {
 
   return (
     <>
-      <div className="md:w-[50vw] mt-10 md:ml-24 bg-white ">
+      <div className="md:w-[50vw] mt-10 mx-auto bg-white ">
         <div className="px-3.5 space-y-2 w-96">
           <h1 className="text-lg font-semibold md:text-xl text-slate-800">
             Popular Experiences
