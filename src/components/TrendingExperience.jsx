@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Empty from "./Empty";
+import Loader from "./Loader";
 
 export default function TrendingExperience() {
   const [data, setData] = useState([]);
-
   const [filteredData, setFilteredData] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [showLoader, setShowLoader] = useState(false); 
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedSalary, setSelectedSalary] = useState("All");
   const [selectedLocation, setSelectedLocation] = useState("All");
@@ -38,17 +38,23 @@ export default function TrendingExperience() {
   useEffect(() => {
     const fetchInterviews = async () => {
       try {
+        const loaderTimeout = setTimeout(() => {
+          setShowLoader(true);
+        }, 1000); 
+
         const response = await axios.get(
           "http://localhost:9000/interviews/trending"
         );
         setData(response.data);
-        console.log(response.data);
+
+        clearTimeout(loaderTimeout); 
       } catch (error) {
         console.error("Error fetching the interviews:", error);
       } finally {
-        setLoading(false);
+        setShowLoader(false); 
       }
     };
+
     fetchInterviews();
   }, []);
 
@@ -102,152 +108,147 @@ export default function TrendingExperience() {
 
   const totalPages = Math.ceil(filteredData.length / itemsPerPage);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
   return (
-    <div
-      className={` ${
-        filteredData.length > 0 ? " md:mt-16" : "md:mt-14"
-      } md:ml-16 md:max-w-3xl`}
-    >
-      <div className="flex items-center justify-between px-5 mx-0 ">
-        <div className="space-y-2 w-96">
-          <h1 className="text-lg font-semibold md:text-xl text-slate-800">
-            Most Viewed Interview Experiences
-          </h1>
-          <p className="text-xs">
-            Read more interview experiences and keep yourself up to date
-          </p>
+    <>
+      {showLoader && <Loader />}
+      <div
+        className={` ${
+          filteredData.length > 0 ? "md:mt-16" : "md:mt-14"
+        } md:ml-16 md:max-w-3xl`}
+      >
+        <div className="flex items-center justify-between px-5 mx-0 ">
+          <div className="space-y-2 w-96">
+            <h1 className="text-lg font-semibold md:text-xl text-slate-800">
+              Most Viewed Interview Experiences
+            </h1>
+            <p className="text-xs">
+              Read more interview experiences and keep yourself up to date
+            </p>
+          </div>
+         
         </div>
-        <div>
-          <h1 className="text-sm font-bold text-blue-500 cursor-pointer">
-            View All
-          </h1>
-        </div>
-      </div>
 
-      <div className="flex items-center justify-center max-w-md gap-5 mx-auto mt-10 lg:max-w-lg">
-        <div className="border-[1px] border-gray-200 rounded-lg py-2 w-full text-center">
-          <select
-            className="px-12 outline-none"
-            value={selectedSalary}
-            onChange={handleSalaryChange}
-          >
-            {salaryRanges.map((range, index) => (
-              <option key={index} value={range}>
-                {range}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className="border-[1px] border-gray-200 rounded-lg py-2 w-full text-center">
-          <select
-            className="px-12 outline-none"
-            value={selectedLocation}
-            onChange={handleLocationChange}
-          >
-            {locations.map((location, index) => (
-              <option key={index} value={location}>
-                {location}
-              </option>
-            ))}
-          </select>
-        </div>
-      </div>
-
-      <div className="flex flex-col items-center justify-center gap-6 my-6 md:justify-start md:items-start ">
-        {paginatedData.length > 0 ? (
-          paginatedData.map((i, idx) => (
-            <div
-              key={idx}
-              className="w-[80vw] md:w-[50vw]  lg:w-[30vw] mx-auto p-5 border-[1px] border-gray-300 rounded-lg"
+        <div className="flex items-center justify-center max-w-md gap-5 mx-auto mt-10 lg:max-w-lg">
+          <div className="border-[1px] border-gray-200 rounded-lg py-2 w-full text-center">
+            <select
+              className="px-12 outline-none"
+              value={selectedSalary}
+              onChange={handleSalaryChange}
             >
-              <div className="flex items-center justify-between">
-                <h1 className="text-lg font-semibold">
-                  {i.company} | {i.position}
-                </h1>
-                <img
-                  src={i.companyPic}
-                  className="rounded-full w-7 h-7"
-                  alt=""
-                />
-              </div>
-              <div className="flex items-center gap-10">
-                <img
-                  src={i.companyPic}
-                  alt=""
-                  className="rounded-full w-7 h-7"
-                />
-                <div>
-                  <h1 className="flex items-center gap-3">
-                    <span className="font-semibold">{i.Name}</span> |{" "}
-                    <span className="text-sm text-gray-800">
-                      Level {i.Level}
-                    </span>{" "}
-                    |{" "}
-                    {i.selected ? (
-                      <div className="flex items-center space-x-1">
-                        <img
-                          className="w-3.5 h-3.5 rounded-full"
-                          src="https://static.naukimg.com/code360/assets/icons/outcome-selected.svg"
-                          alt=""
-                        />
-                        <h1 className="text-[#70bf81] text-sm font-semibold">
-                          Selected
-                        </h1>
-                      </div>
-                    ) : null}
+              {salaryRanges.map((range, index) => (
+                <option key={index} value={range} className="text-sm">
+                  {range}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="border-[1px] border-gray-200 rounded-lg py-2 w-full text-center">
+            <select
+              className="px-12 outline-none"
+              value={selectedLocation}
+              onChange={handleLocationChange}
+            >
+              {locations.map((location, index) => (
+                <option key={index} value={location} className="text-sm">
+                  {location}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        <div className="flex flex-col items-center justify-center gap-6 my-6 md:justify-start md:items-start ">
+          {paginatedData.length > 0 ? (
+            paginatedData.map((i, idx) => (
+              <div
+                key={idx}
+                className="w-[80vw] md:w-[50vw]  lg:w-[30vw] mx-auto p-5 border-[1px] border-gray-300 rounded-lg"
+              >
+                <div className="flex items-center justify-between">
+                  <h1 className="text-lg font-semibold">
+                    {i.company} | {i.position}
                   </h1>
-                  <ul className="flex items-center gap-x-2 gap-y-1.5 mt-2 flex-wrap text-sm text-gray-600">
-                    <li>{i.interviewPlace}</li>|<li>{i.college}</li>|
-                    <li>CGPA {i.CGPA}</li>|<li>{i.rounds} rounds</li>|
-                    <li>{i.NumberofProblems} problems</li>
-                  </ul>
+                  <img
+                    src={i.companyPic}
+                    className="w-10 h-10 rounded-full border-[1px] border-gray-300"
+                    alt=""
+                  />
+                </div>
+                <div className="flex items-center gap-10">
+                  <img
+                    src={i.ProfilePic}
+                    alt=""
+                    className="object-cover w-10 h-10 rounded-full border-[1px] border-gray-300"
+                  />
+                  <div>
+                    <h1 className="flex items-center gap-3">
+                      <span className="font-semibold">{i.Name}</span> |{" "}
+                      <span className="text-sm text-gray-800">
+                        Level {i.Level}
+                      </span>{" "}
+                      |{" "}
+                      {i.selected ? (
+                        <div className="flex items-center space-x-1">
+                          <img
+                            className="w-3.5 h-3.5 rounded-full"
+                            src="https://static.naukimg.com/code360/assets/icons/outcome-selected.svg"
+                            alt=""
+                          />
+                          <h1 className="text-[#70bf81] text-sm font-semibold">
+                            Selected
+                          </h1>
+                        </div>
+                      ) : null}
+                    </h1>
+                    <ul className="flex items-center gap-x-2 gap-y-1.5 mt-2 flex-wrap text-sm text-gray-600">
+                      <li>{i.interviewPlace}</li>|<li>{i.college}</li>|
+                      <li>CGPA {i.CGPA}</li>|<li>{i.rounds} rounds</li>|
+                      <li>{i.NumberofProblems} problems</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
+            ))
+          ) : (
+            <div className="lg:ml-56">
+              <Empty />
             </div>
-          ))
-        ) : (
-          <div className="lg:ml-56">
-            <Empty />
-          </div>
-        )}
-      </div>
-
-      <div className="flex items-center justify-between gap-5 mx-5 items my-7 lg:mx-0">
-        <button
-          onClick={handlePrevPage}
-          disabled={currentPage === 1}
-          className="px-2 py-1 text-white bg-black rounded-lg disabled:bg-stone-600"
-        >
-          Prev
-        </button>
-
-        <div className="flex gap-2">
-          {Array.from({ length: totalPages }, (_, index) => (
-            <button
-              key={index}
-              onClick={() => handlePageClick(index + 1)}
-              className={`px-4 w-10 h-10 py-1 rounded-full ${
-                currentPage === index + 1
-                  ? "bg-black text-white"
-                  : "bg-stone-600 text-white"
-              }`}
-            >
-              {index + 1}
-            </button>
-          ))}
+          )}
         </div>
-        <button
-          onClick={handleNextPage}
-          disabled={currentPage === totalPages}
-          className="px-2 py-1 text-white bg-black rounded-lg disabled:bg-stone-600"
-        >
-          Next
-        </button>
+
+        <div className="flex items-center justify-between gap-5 mx-5 items my-7 lg:mx-0">
+          <button
+            onClick={handlePrevPage}
+            disabled={currentPage === 1}
+            className="px-2 py-1 text-white bg-black rounded-lg disabled:bg-stone-600"
+          >
+            Prev
+          </button>
+
+          <div className="flex gap-2">
+            {Array.from({ length: totalPages }, (_, index) => (
+              <button
+                key={index}
+                onClick={() => handlePageClick(index + 1)}
+                className={`px-4 w-10 h-10 py-1 rounded-full ${
+                  currentPage === index + 1
+                    ? "bg-black text-white"
+                    : "bg-stone-600 text-white"
+                }`}
+              >
+                {index + 1}
+              </button>
+            ))}
+          </div>
+          <button
+            onClick={handleNextPage}
+            disabled={currentPage === totalPages}
+            className="px-2 py-1 text-white bg-black rounded-lg disabled:bg-stone-600"
+          >
+            Next
+          </button>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

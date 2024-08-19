@@ -7,11 +7,14 @@ export default function PopularInterview() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("/interviews/trending");
+        const response = await fetch(
+          "http://localhost:9000/interviews/trending"
+        );
         const result = await response.json();
         const filteredInterviews = result.filter(
-          (interview) => interview.upvotes > 5
+          (interview) => interview.upvotes >= 5
         );
+        console.log(filteredInterviews);
         setInterviews(filteredInterviews);
       } catch (error) {
         console.error("Error fetching interviews:", error);
@@ -38,11 +41,11 @@ export default function PopularInterview() {
               >
                 <div className="flex items-center justify-between">
                   <h1 className="font-semibold ">
-                    {i.company} | {i.position} | {i.experience} | {i.date}
+                    {i.company} | {i.position}
                   </h1>
                   <img
                     src={i.companyPic}
-                    className="rounded-full w-7 h-7"
+                    className="w-10 h-10 rounded-full border-[1px] border-gray-300"
                     alt=""
                   />
                 </div>
@@ -50,7 +53,7 @@ export default function PopularInterview() {
                   <img
                     src={i.ProfilePic}
                     alt=""
-                    className="rounded-full w-7 h-7"
+                    className="object-cover w-10 h-10 rounded-full border-[1px] border-gray-300"
                   />
                   <div>
                     <h1 className="flex items-center gap-3">
@@ -62,7 +65,7 @@ export default function PopularInterview() {
                       {i.selected && (
                         <div className="flex items-center space-x-1">
                           <img
-                            className="w-3.5 h-3.5 rounded-full"
+                            className="object-cover w-10 h-10 rounded-full"
                             src="https://static.naukimg.com/code360/assets/icons/outcome-selected.svg"
                             alt=""
                           />

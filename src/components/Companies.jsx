@@ -25,11 +25,6 @@ export default function Companies() {
               Read more interview experiences and keep yourself up to date
             </p>
           </div>
-          <div>
-            <h1 className="text-sm font-bold text-blue-500 cursor-pointer">
-              View All
-            </h1>
-          </div>
         </div>
         <div className="flex flex-wrap justify-center gap-5 px-5 mx-auto mt-8 md:max-w-3xl">
           {comapnies.map((_, i) => {
