@@ -53,24 +53,6 @@ export default function UploadExperience({ jwt }) {
       <div className="max-w-xl mx-auto my-5">
         <div>
           <div className="grid grid-cols-2 gap-3 place-items-center">
-            <div className="col-span-2">
-              <input
-                type="text"
-                placeholder="Company"
-                value={company}
-                onChange={(e) => setCompany(e.target.value)}
-                className="border-[1px] border-gray-300 py-3 px-2 rounded-lg outline-none md:w-[31vw] w-[91vw]"
-              />
-            </div>
-            <div className="col-span-2">
-              <input
-                type="text"
-                placeholder="Role"
-                value={role}
-                onChange={(e) => setRole(e.target.value)}
-                className="border-[1px] border-gray-300 py-3 px-2 rounded-lg outline-none md:w-[31vw] w-[91vw] "
-              />
-            </div>
             <div className="border-[1px] border-gray-200 rounded-lg py-2 text-center col-span-2 ">
               <select
                 value={salaryRange}
@@ -98,6 +80,29 @@ export default function UploadExperience({ jwt }) {
               </select>
             </div>
             <div className="col-span-2">
+              <h1 className="font-semibold text-slate-800">Company</h1>
+              <input
+                type="text"
+                placeholder="Company"
+                value={company}
+                onChange={(e) => setCompany(e.target.value)}
+                className="border-[1px] border-gray-300 py-3 px-2 rounded-lg outline-none md:w-[31vw] w-[91vw]  mt-5"
+              />
+            </div>
+            <div className="col-span-2">
+              <h1 className="font-semibold text-slate-800">Company</h1>
+              <input
+                type="text"
+                placeholder="Role"
+                value={role}
+                onChange={(e) => setRole(e.target.value)}
+                className="border-[1px] border-gray-300 py-3 px-2 rounded-lg outline-none md:w-[31vw] w-[91vw]  mt-5 "
+              />
+            </div>
+
+            <div className="col-span-2">
+              <h1 className="font-semibold text-slate-800">Company</h1>
+
               <textarea
                 type="text"
                 cols={60}
@@ -105,10 +110,12 @@ export default function UploadExperience({ jwt }) {
                 placeholder="Journey"
                 value={journey}
                 onChange={(e) => setJourney(e.target.value)}
-                className="border-[1px] border-gray-300 py-3 px-2 rounded-lg outline-none"
+                className="border-[1px] border-gray-300 py-3 px-2 rounded-lg outline-none mt-5"
               />
             </div>
             <div className="col-span-2">
+              <h1 className="font-semibold text-slate-800">Company</h1>
+
               <textarea
                 type="text"
                 cols={60}
@@ -116,10 +123,12 @@ export default function UploadExperience({ jwt }) {
                 placeholder="Application story"
                 value={applicationStory}
                 onChange={(e) => setApplicationStory(e.target.value)}
-                className="border-[1px] border-gray-300 py-3 px-2 rounded-lg outline-none"
+                className="border-[1px] border-gray-300 py-3 px-2 rounded-lg outline-none mt-5"
               />
             </div>
             <div className="col-span-2">
+              <h1 className="font-semibold text-slate-800">Company</h1>
+
               <textarea
                 type="text"
                 cols={60}
@@ -127,10 +136,12 @@ export default function UploadExperience({ jwt }) {
                 placeholder="Interview experience"
                 value={interviewExperience}
                 onChange={(e) => setInterviewExperience(e.target.value)}
-                className="border-[1px] border-gray-300 py-3 px-2 rounded-lg outline-none"
+                className="border-[1px] border-gray-300 py-3 px-2 rounded-lg outline-none  mt-5"
               />
             </div>
             <div className="col-span-2">
+              <h1 className="font-semibold text-slate-800">Company</h1>
+
               <textarea
                 type="text"
                 cols={60}
@@ -138,18 +149,21 @@ export default function UploadExperience({ jwt }) {
                 placeholder="Preparation"
                 value={preparation}
                 onChange={(e) => setPreparation(e.target.value)}
-                className="border-[1px] border-gray-300 py-3 px-2 rounded-lg outline-none"
+                className="border-[1px] border-gray-300 py-3 px-2 rounded-lg outline-none  mt-5"
               />
             </div>
             <div className="col-span-2">
+              <h1 className="font-semibold text-slate-800">Company</h1>
+
               <textarea
                 type="text"
                 cols={60}
                 rows={5}
                 placeholder="Tip"
+                mt-5
                 value={tip}
                 onChange={(e) => setTip(e.target.value)}
-                className="border-[1px] border-gray-300 py-3 px-2 rounded-lg outline-none"
+                className="border-[1px] border-gray-300 py-3 px-2 rounded-lg outline-none  mt-5"
               />
               <div className="mt-5">
                 <button

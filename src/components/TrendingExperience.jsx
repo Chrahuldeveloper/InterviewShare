@@ -3,229 +3,7 @@ import axios from "axios";
 import Empty from "./Empty";
 
 export default function TrendingExperience() {
-  const [data, setData] = useState([
-    {
-      company: "Amazon",
-      companyPic:
-        "https://files.codingninjas.in/company-short-logo-url/2/731aacbd5ef5e7c6d6195f96525fdc79.png",
-      position: "SDE-1",
-      experience: "Fresher",
-      date: "Jan 2024",
-      Name: "Rahul",
-      selected: true,
-      Level: "1",
-      rounds: "5",
-      CGPA: "8",
-      NumberofProblems: "5",
-      ProfilePic: "https://files.codingninjas.com/gen-assets/AN/8.png",
-      interviewPlace: "On Campus",
-      college: "CMRCET",
-    },
-    {
-      company: "Amazon",
-      companyPic:
-        "https://files.codingninjas.in/company-short-logo-url/2/731aacbd5ef5e7c6d6195f96525fdc79.png",
-      position: "SDE-1",
-      experience: "Fresher",
-      date: "Jan 2024",
-      Name: "Rahul",
-      selected: true,
-      Level: "1",
-      rounds: "5",
-      CGPA: "8",
-      NumberofProblems: "5",
-      ProfilePic: "https://files.codingninjas.com/gen-assets/AN/8.png",
-      interviewPlace: "On Campus",
-      college: "CMRCET",
-    },
-    {
-      company: "Amazon",
-      companyPic:
-        "https://files.codingninjas.in/company-short-logo-url/2/731aacbd5ef5e7c6d6195f96525fdc79.png",
-      position: "SDE-1",
-      experience: "Fresher",
-      date: "Jan 2024",
-      Name: "Rahul",
-      selected: true,
-      Level: "1",
-      rounds: "5",
-      CGPA: "8",
-      NumberofProblems: "5",
-      ProfilePic: "https://files.codingninjas.com/gen-assets/AN/8.png",
-      interviewPlace: "On Campus",
-      college: "CMRCET",
-    },
-    {
-      company: "Amazon",
-      companyPic:
-        "https://files.codingninjas.in/company-short-logo-url/2/731aacbd5ef5e7c6d6195f96525fdc79.png",
-      position: "SDE-1",
-      experience: "Fresher",
-      date: "Jan 2024",
-      Name: "Rahul",
-      selected: true,
-      Level: "1",
-      rounds: "5",
-      CGPA: "8",
-      NumberofProblems: "5",
-      ProfilePic: "https://files.codingninjas.com/gen-assets/AN/8.png",
-      interviewPlace: "On Campus",
-      college: "CMRCET",
-    },
-    {
-      company: "Amazon",
-      companyPic:
-        "https://files.codingninjas.in/company-short-logo-url/2/731aacbd5ef5e7c6d6195f96525fdc79.png",
-      position: "SDE-1",
-      experience: "Fresher",
-      date: "Jan 2024",
-      Name: "Rahul",
-      selected: true,
-      Level: "1",
-      rounds: "5",
-      CGPA: "8",
-      NumberofProblems: "5",
-      ProfilePic: "https://files.codingninjas.com/gen-assets/AN/8.png",
-      interviewPlace: "On Campus",
-      college: "CMRCET",
-    },
-    {
-      company: "Amazon",
-      companyPic:
-        "https://files.codingninjas.in/company-short-logo-url/2/731aacbd5ef5e7c6d6195f96525fdc79.png",
-      position: "SDE-1",
-      experience: "Fresher",
-      date: "Jan 2024",
-      Name: "Rahul",
-      selected: true,
-      Level: "1",
-      rounds: "5",
-      CGPA: "8",
-      NumberofProblems: "5",
-      ProfilePic: "https://files.codingninjas.com/gen-assets/AN/8.png",
-      interviewPlace: "On Campus",
-      college: "CMRCET",
-    },
-    {
-      company: "Amazon",
-      companyPic:
-        "https://files.codingninjas.in/company-short-logo-url/2/731aacbd5ef5e7c6d6195f96525fdc79.png",
-      position: "SDE-1",
-      experience: "Fresher",
-      date: "Jan 2024",
-      Name: "Rahul",
-      selected: true,
-      Level: "1",
-      rounds: "5",
-      CGPA: "8",
-      NumberofProblems: "5",
-      ProfilePic: "https://files.codingninjas.com/gen-assets/AN/8.png",
-      interviewPlace: "On Campus",
-      college: "CMRCET",
-    },
-    {
-      company: "Amazon",
-      companyPic:
-        "https://files.codingninjas.in/company-short-logo-url/2/731aacbd5ef5e7c6d6195f96525fdc79.png",
-      position: "SDE-1",
-      experience: "Fresher",
-      date: "Jan 2024",
-      Name: "Rahul",
-      selected: true,
-      Level: "1",
-      rounds: "5",
-      CGPA: "8",
-      NumberofProblems: "5",
-      ProfilePic: "https://files.codingninjas.com/gen-assets/AN/8.png",
-      interviewPlace: "On Campus",
-      college: "CMRCET",
-    },
-    {
-      company: "Amazon",
-      companyPic:
-        "https://files.codingninjas.in/company-short-logo-url/2/731aacbd5ef5e7c6d6195f96525fdc79.png",
-      position: "SDE-1",
-      experience: "Fresher",
-      date: "Jan 2024",
-      Name: "Rahul",
-      selected: true,
-      Level: "1",
-      rounds: "5",
-      CGPA: "8",
-      NumberofProblems: "5",
-      ProfilePic: "https://files.codingninjas.com/gen-assets/AN/8.png",
-      interviewPlace: "On Campus",
-      college: "CMRCET",
-    },
-    {
-      company: "Amazon",
-      companyPic:
-        "https://files.codingninjas.in/company-short-logo-url/2/731aacbd5ef5e7c6d6195f96525fdc79.png",
-      position: "SDE-1",
-      experience: "Fresher",
-      date: "Jan 2024",
-      Name: "Rahul",
-      selected: true,
-      Level: "1",
-      rounds: "5",
-      CGPA: "8",
-      NumberofProblems: "5",
-      ProfilePic: "https://files.codingninjas.com/gen-assets/AN/8.png",
-      interviewPlace: "On Campus",
-      college: "CMRCET",
-    },
-    {
-      company: "Amazon",
-      companyPic:
-        "https://files.codingninjas.in/company-short-logo-url/2/731aacbd5ef5e7c6d6195f96525fdc79.png",
-      position: "SDE-1",
-      experience: "Fresher",
-      date: "Jan 2024",
-      Name: "Rahul",
-      selected: true,
-      Level: "1",
-      rounds: "5",
-      CGPA: "8",
-      NumberofProblems: "5",
-      ProfilePic: "https://files.codingninjas.com/gen-assets/AN/8.png",
-      interviewPlace: "On Campus",
-      college: "CMRCET",
-    },
-    {
-      company: "Amazon",
-      companyPic:
-        "https://files.codingninjas.in/company-short-logo-url/2/731aacbd5ef5e7c6d6195f96525fdc79.png",
-      position: "SDE-1",
-      experience: "Fresher",
-      date: "Jan 2024",
-      Name: "Rahul",
-      selected: true,
-      Level: "1",
-      rounds: "5",
-      CGPA: "8",
-      NumberofProblems: "5",
-      ProfilePic: "https://files.codingninjas.com/gen-assets/AN/8.png",
-      interviewPlace: "On Campus",
-      college: "CMRCET",
-    },
-    {
-      company: "Amazon",
-      companyPic:
-        "https://files.codingninjas.in/company-short-logo-url/2/731aacbd5ef5e7c6d6195f96525fdc79.png",
-      position: "SDE-1",
-      experience: "Fresher",
-      date: "Jan 2024",
-      Name: "Rahul",
-      selected: true,
-      Level: "1",
-      rounds: "5",
-      CGPA: "8",
-      NumberofProblems: "5",
-      ProfilePic: "https://files.codingninjas.com/gen-assets/AN/8.png",
-      interviewPlace: "On Campus",
-      college: "CMRCET",
-    },
-  ]);
+  const [data, setData] = useState([]);
 
   const [filteredData, setFilteredData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -260,8 +38,11 @@ export default function TrendingExperience() {
   useEffect(() => {
     const fetchInterviews = async () => {
       try {
-        const response = await axios.get("/interviews/trending");
+        const response = await axios.get(
+          "http://localhost:9000/interviews/trending"
+        );
         setData(response.data);
+        console.log(response.data);
       } catch (error) {
         console.error("Error fetching the interviews:", error);
       } finally {
@@ -376,26 +157,26 @@ export default function TrendingExperience() {
         </div>
       </div>
 
-      <div className="flex flex-col items-center justify-center gap-6 my-6 md:justify-start md:items-start md:ml-28">
+      <div className="flex flex-col items-center justify-center gap-6 my-6 md:justify-start md:items-start ">
         {paginatedData.length > 0 ? (
           paginatedData.map((i, idx) => (
             <div
               key={idx}
-              className="max-w-md md:max-w-lg lg:max-w-xl p-5 border-[1px] border-gray-300 rounded-lg"
+              className="w-[80vw] md:w-[50vw]  lg:w-[30vw] mx-auto p-5 border-[1px] border-gray-300 rounded-lg"
             >
               <div className="flex items-center justify-between">
                 <h1 className="text-lg font-semibold">
-                  {i.company} | {i.position} | {i.experience}
+                  {i.company} | {i.position}
                 </h1>
                 <img
-                  src={i.companyPic || "defaultImageUrl"}
+                  src={i.companyPic}
                   className="rounded-full w-7 h-7"
                   alt=""
                 />
               </div>
               <div className="flex items-center gap-10">
                 <img
-                  src={i.ProfilePic || "defaultProfilePicUrl"}
+                  src={i.companyPic}
                   alt=""
                   className="rounded-full w-7 h-7"
                 />
@@ -405,7 +186,6 @@ export default function TrendingExperience() {
                     <span className="text-sm text-gray-800">
                       Level {i.Level}
                     </span>{" "}
-                    
                     |{" "}
                     {i.selected ? (
                       <div className="flex items-center space-x-1">
@@ -436,7 +216,7 @@ export default function TrendingExperience() {
         )}
       </div>
 
-      <div className="flex items-center justify-between gap-5 items my-7">
+      <div className="flex items-center justify-between gap-5 mx-5 items my-7 lg:mx-0">
         <button
           onClick={handlePrevPage}
           disabled={currentPage === 1}
@@ -450,7 +230,7 @@ export default function TrendingExperience() {
             <button
               key={index}
               onClick={() => handlePageClick(index + 1)}
-              className={`px-4  py-1 rounded-full ${
+              className={`px-4 w-10 h-10 py-1 rounded-full ${
                 currentPage === index + 1
                   ? "bg-black text-white"
                   : "bg-stone-600 text-white"
