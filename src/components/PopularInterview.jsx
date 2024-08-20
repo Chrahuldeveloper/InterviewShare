@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Empty from "./Empty";
+import { useNavigate } from "react-router-dom";
 
 export default function PopularInterview() {
   const [interviews, setInterviews] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,6 +39,9 @@ export default function PopularInterview() {
             interviews.map((i, idx) => (
               <div
                 key={idx}
+                onClick={() => {
+                  navigate(`/interview/${i._id}`);
+                }}
                 className="max-w-md  md:max-w-lg  lg:max-w-xl mx-auto  p-5 border-[1px] border-gray-300 rounded-lg"
               >
                 <div className="flex items-center justify-between">
