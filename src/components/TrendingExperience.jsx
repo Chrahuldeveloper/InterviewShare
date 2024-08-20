@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Empty from "./Empty";
 import Loader from "./Loader";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function TrendingExperience() {
   const [data, setData] = useState([]);
@@ -12,8 +12,6 @@ export default function TrendingExperience() {
   const [selectedSalary, setSelectedSalary] = useState("All");
   const [selectedLocation, setSelectedLocation] = useState("All");
   const itemsPerPage = 7;
-
-  const navigate = useNavigate();
 
   const salaryRanges = [
     "All",
@@ -161,57 +159,75 @@ export default function TrendingExperience() {
         <div className="flex flex-col items-center justify-center gap-6 my-6 md:justify-start md:items-start ">
           {paginatedData.length > 0 ? (
             paginatedData.map((i, idx) => (
-              <div
-                onClick={() => {
-                  navigate(`/interview/${i._id}`);
+              <Link
+                to={`/interview/${i._id}`}
+                state={{
+                  company: i.company,
+                  companyPic: i.companyPic,
+                  position: i.position,
+                  experience: i.experience,
+                  date: i.date,
+                  Name: i.Name,
+                  selected: i.selected,
+                  Level: i.Level,
+                  rounds: i.rounds,
+                  CGPA: i.CGPA,
+                  NumberofProblems: i.NumberofProblems,
+                  ProfilePic: i.ProfilePic,
+                  interviewPlace: i.interviewPlace,
+                  collage: i.collage,
+                  Likes: i.Likes,
+                  upvotes: i.upvotes,
+                  _id: i._id,
                 }}
-                key={idx}
-                className="w-[80vw] md:w-[50vw]  lg:w-[40vw] mx-auto p-5 border-[1px] border-gray-300 rounded-lg cursor-pointer"
+                className="w-[80vw] md:w-[50vw] lg:w-[40vw] mx-auto p-5 border-[1px] border-gray-300 rounded-lg cursor-pointer"
               >
-                <div className="flex items-center justify-between">
-                  <h1 className="text-lg font-semibold">
-                    {i.company} | {i.position}
-                  </h1>
-                  <img
-                    src={i.companyPic}
-                    className="w-10 h-10 rounded-full border-[1px] border-gray-300"
-                    alt=""
-                  />
-                </div>
-                <div className="flex items-center gap-10">
-                  <img
-                    src={i.ProfilePic}
-                    alt=""
-                    className="object-cover w-10 h-10 rounded-full border-[1px] border-gray-300"
-                  />
-                  <div>
-                    <h1 className="flex items-center gap-3">
-                      <span className="font-semibold">{i.Name}</span> |{" "}
-                      <span className="text-sm text-gray-800">
-                        Level {i.Level}
-                      </span>{" "}
-                      |{" "}
-                      {i.selected ? (
-                        <div className="flex items-center space-x-1">
-                          <img
-                            className="w-3.5 h-3.5 rounded-full"
-                            src="https://static.naukimg.com/code360/assets/icons/outcome-selected.svg"
-                            alt=""
-                          />
-                          <h1 className="text-[#70bf81] text-sm font-semibold">
-                            Selected
-                          </h1>
-                        </div>
-                      ) : null}
+                <div key={idx}>
+                  <div className="flex items-center justify-between">
+                    <h1 className="text-lg font-semibold">
+                      {i.company} | {i.position}
                     </h1>
-                    <ul className="flex items-center gap-x-2 gap-y-1.5 mt-2 flex-wrap text-sm text-gray-600">
-                      <li>{i.interviewPlace}</li>|<li>{i.college}</li>|
-                      <li>CGPA {i.CGPA}</li>|<li>{i.rounds} rounds</li>|
-                      <li>{i.NumberofProblems} problems</li>
-                    </ul>
+                    <img
+                      src={i.companyPic}
+                      className="w-10 h-10 rounded-full border-[1px] border-gray-300"
+                      alt=""
+                    />
+                  </div>
+                  <div className="flex items-center gap-10">
+                    <img
+                      src={i.ProfilePic}
+                      alt=""
+                      className="object-cover w-10 h-10 rounded-full border-[1px] border-gray-300"
+                    />
+                    <div>
+                      <h1 className="flex items-center gap-3">
+                        <span className="font-semibold">{i.Name}</span> |{" "}
+                        <span className="text-sm text-gray-800">
+                          Level {i.Level}
+                        </span>{" "}
+                        |{" "}
+                        {i.selected ? (
+                          <div className="flex items-center space-x-1">
+                            <img
+                              className="w-3.5 h-3.5 rounded-full"
+                              src="https://static.naukimg.com/code360/assets/icons/outcome-selected.svg"
+                              alt=""
+                            />
+                            <h1 className="text-[#70bf81] text-sm font-semibold">
+                              Selected
+                            </h1>
+                          </div>
+                        ) : null}
+                      </h1>
+                      <ul className="flex items-center gap-x-2 gap-y-1.5 mt-2 flex-wrap text-sm text-gray-600">
+                        <li>{i.interviewPlace}</li>|<li>{i.college}</li>|
+                        <li>CGPA {i.CGPA}</li>|<li>{i.rounds} rounds</li>|
+                        <li>{i.NumberofProblems} problems</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))
           ) : (
             <div className="lg:ml-56">
