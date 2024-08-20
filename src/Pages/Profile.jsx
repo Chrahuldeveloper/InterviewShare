@@ -7,6 +7,8 @@ export default function Profile() {
   const [userData, setUserData] = useState({ interviews: [], blogs: [] });
   const navigate = useNavigate();
 
+  const [isedit, setisedit] = useState(false);
+
   const { userid } = useParams();
 
   useEffect(() => {
@@ -59,7 +61,12 @@ export default function Profile() {
             >
               Share experience
             </button>
-            <button className="col-span-2 px-4 py-2.5 text-sm font-semibold text-white duration-500 ease-in-out bg-blue-500 rounded-lg">
+            <button
+              onClick={() => {
+                setisedit(true);
+              }}
+              className="col-span-2 px-4 py-2.5 text-sm font-semibold text-white duration-500 ease-in-out bg-blue-500 rounded-lg"
+            >
               Edit Profile
             </button>
           </div>
@@ -153,7 +160,7 @@ export default function Profile() {
           })}
         </div>
       </div>
-      {/* <EditModel/> */}
+      {isedit && <EditModel />}
     </div>
   );
 }
