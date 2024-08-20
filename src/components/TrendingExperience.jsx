@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Empty from "./Empty";
 import Loader from "./Loader";
+import { useNavigate } from "react-router-dom";
 
 export default function TrendingExperience() {
   const [data, setData] = useState([]);
@@ -11,6 +12,8 @@ export default function TrendingExperience() {
   const [selectedSalary, setSelectedSalary] = useState("All");
   const [selectedLocation, setSelectedLocation] = useState("All");
   const itemsPerPage = 7;
+
+  const navigate = useNavigate();
 
   const salaryRanges = [
     "All",
@@ -155,13 +158,15 @@ export default function TrendingExperience() {
             </select>
           </div>
         </div>
-
         <div className="flex flex-col items-center justify-center gap-6 my-6 md:justify-start md:items-start ">
           {paginatedData.length > 0 ? (
             paginatedData.map((i, idx) => (
               <div
+                onClick={() => {
+                  navigate(`/interview/${i._id}`);
+                }}
                 key={idx}
-                className="w-[80vw] md:w-[50vw]  lg:w-[40vw] mx-auto p-5 border-[1px] border-gray-300 rounded-lg"
+                className="w-[80vw] md:w-[50vw]  lg:w-[40vw] mx-auto p-5 border-[1px] border-gray-300 rounded-lg cursor-pointer"
               >
                 <div className="flex items-center justify-between">
                   <h1 className="text-lg font-semibold">

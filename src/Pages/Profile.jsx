@@ -6,9 +6,7 @@ import axios from "axios";
 export default function Profile() {
   const [userData, setUserData] = useState({ interviews: [], blogs: [] });
   const navigate = useNavigate();
-
   const [isedit, setisedit] = useState(false);
-
   const { userid } = useParams();
 
   useEffect(() => {
@@ -81,7 +79,7 @@ export default function Profile() {
             return (
               <div
                 key={idx}
-                className="max-w-md md:max-w-lg lg:max-w-xl p-5 border-[1px] border-gray-300 rounded-lg"
+                className="max-w-md md:max-w-lg lg:max-w-xl p-5 border-[1px] border-gray-300 rounded-lg cursor-pointer"
               >
                 <div className="flex items-center justify-between">
                   <h1 className="text-lg font-semibold">
