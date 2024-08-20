@@ -26,9 +26,9 @@ export default function PopularInterview() {
 
   return (
     <>
-      <div className="md:w-[50vw] mt-10 mx-auto bg-white ">
+      <div className="md:w-[50vw] mt-10 mx-auto  ">
         <div className="px-3.5 space-y-2 w-96">
-          <h1 className="text-lg font-semibold md:text-xl text-slate-800">
+          <h1 className="text-lg font-semibold lg:text-2xl md:text-xl text-slate-800">
             Popular Experiences
           </h1>
         </div>
@@ -65,7 +65,7 @@ export default function PopularInterview() {
                       {i.selected && (
                         <div className="flex items-center space-x-1">
                           <img
-                            className="object-cover w-10 h-10 rounded-full"
+                            className="w-3.5 h-3.5 rounded-full"
                             src="https://static.naukimg.com/code360/assets/icons/outcome-selected.svg"
                             alt=""
                           />

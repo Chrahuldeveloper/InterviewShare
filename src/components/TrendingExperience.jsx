@@ -117,8 +117,8 @@ export default function TrendingExperience() {
         } mx-auto md:max-w-3xl`}
       >
         <div className="flex items-center justify-between px-5 mx-0 ">
-          <div className="space-y-2 w-96">
-            <h1 className="text-lg font-semibold md:text-xl text-slate-800">
+          <div className="w-full space-y-2">
+            <h1 className="text-lg font-semibold lg:text-2xl md:text-xl text-slate-800">
               Most Viewed Interview Experiences
             </h1>
             <p className="text-xs">
@@ -219,7 +219,7 @@ export default function TrendingExperience() {
           <button
             onClick={handlePrevPage}
             disabled={currentPage === 1}
-            className="px-2 py-1 text-white bg-black rounded-lg disabled:bg-stone-600"
+            className="px-2 py-1 text-white bg-black rounded-lg cursor-pointer disabled:bg-gray-300"
           >
             Prev
           </button>
@@ -242,7 +242,7 @@ export default function TrendingExperience() {
           <button
             onClick={handleNextPage}
             disabled={currentPage === totalPages}
-            className="px-2 py-1 text-white bg-black rounded-lg disabled:bg-stone-600"
+            className="px-2 py-1 text-white bg-black rounded-lg cursor-pointer disabled:bg-gray-300"
           >
             Next
           </button>

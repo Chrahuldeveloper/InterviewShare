@@ -6,7 +6,6 @@ export default function Home() {
     <div className='overflow-x-clip'>
       <Navbar/>
       <Companies/>
-      <img src="https://files.codingninjas.in/group-48095788-29192.svg" alt="" />
       <TrendingExperience/>
     </div>
   )
