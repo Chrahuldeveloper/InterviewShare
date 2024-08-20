@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, TrendingExperience } from "../components";
+import { Navbar } from "../components";
 
 export default function ReadFullExperience() {
   return (
@@ -85,7 +85,6 @@ export default function ReadFullExperience() {
           </p>
         </div>
       </div>
-      <TrendingExperience />
     </div>
   );
 }
