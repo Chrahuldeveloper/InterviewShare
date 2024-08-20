@@ -24,7 +24,7 @@ export default function Profile() {
   }, [userid]);
 
   return (
-    <div className="overflow-x-scroll">
+    <div className="overflow-x-scroll bg-[#fafafa]">
       <Navbar profile={true} />
       <div
         className="w-[90vw] h-56 mx-auto mt-5 rounded-lg"
@@ -89,7 +89,7 @@ export default function Profile() {
                   </h1>
                   <img
                     src={i.companyPic}
-                    className="rounded-full w-7 h-7"
+                    className="w-10 h-10 rounded-full border-[1px] border-gray-300"
                     alt=""
                   />
                 </div>
@@ -97,7 +97,7 @@ export default function Profile() {
                   <img
                     src={i.ProfilePic}
                     alt=""
-                    className="rounded-full w-7 h-7"
+                    className="object-cover w-10 h-10 rounded-full border-[1px] border-gray-300"
                   />
                   <div>
                     <h1 className="flex items-center gap-3">
