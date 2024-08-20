@@ -114,7 +114,7 @@ export default function TrendingExperience() {
       <div
         className={` ${
           filteredData.length > 0 ? "md:mt-16" : "md:mt-14"
-        } mx-auto md:max-w-3xl`}
+        } mx-auto md:max-w-3xl mt-10`}
       >
         <div className="flex items-center justify-between px-5 mx-0 ">
           <div className="w-full space-y-2">
