@@ -12,6 +12,8 @@ export default function ReadFullExperience() {
 
   const jwt = "66c36c272ad08e112437da05";
 
+  console.log(interview?.upvotedBy)
+
   console.log(interview);
   useEffect(() => {
     if (interview?.upvotedBy?.includes(jwt)) {
