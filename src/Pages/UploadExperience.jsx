@@ -57,7 +57,7 @@ export default function UploadExperience({ jwt }) {
               <select
                 value={salaryRange}
                 onChange={(e) => setSalaryRange(e.target.value)}
-                className="outline-none  px-3 md:w-[31vw] w-[91vw]"
+                className="outline-none px-3 md:w-[31vw] w-[91vw]"
               >
                 {salaryRanges.map((range, index) => (
                   <option key={index} value={range}>
@@ -70,7 +70,7 @@ export default function UploadExperience({ jwt }) {
               <select
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
-                className="outline-none  px-3 md:w-[31vw] w-[91vw]"
+                className="outline-none px-3 md:w-[31vw] w-[91vw]"
               >
                 {salaryRanges.map((range, index) => (
                   <option key={index} value={range}>
@@ -86,23 +86,22 @@ export default function UploadExperience({ jwt }) {
                 placeholder="Company"
                 value={company}
                 onChange={(e) => setCompany(e.target.value)}
-                className="border-[1px] border-gray-300 py-3 px-2 rounded-lg outline-none md:w-[31vw] w-[91vw]  mt-5"
+                className="border-[1px] border-gray-300 py-3 px-2 rounded-lg outline-none md:w-[31vw] w-[91vw] mt-5"
               />
             </div>
             <div className="col-span-2">
-              <h1 className="font-semibold text-slate-800">Company</h1>
+              <h1 className="font-semibold text-slate-800">Role</h1>
               <input
                 type="text"
                 placeholder="Role"
                 value={role}
                 onChange={(e) => setRole(e.target.value)}
-                className="border-[1px] border-gray-300 py-3 px-2 rounded-lg outline-none md:w-[31vw] w-[91vw]  mt-5 "
+                className="border-[1px] border-gray-300 py-3 px-2 rounded-lg outline-none md:w-[31vw] w-[91vw] mt-5"
               />
             </div>
 
             <div className="col-span-2">
-              <h1 className="font-semibold text-slate-800">Company</h1>
-
+              <h1 className="font-semibold text-slate-800">Journey</h1>
               <textarea
                 type="text"
                 cols={60}
@@ -114,8 +113,9 @@ export default function UploadExperience({ jwt }) {
               />
             </div>
             <div className="col-span-2">
-              <h1 className="font-semibold text-slate-800">Company</h1>
-
+              <h1 className="font-semibold text-slate-800">
+                Application Story
+              </h1>
               <textarea
                 type="text"
                 cols={60}
@@ -127,8 +127,9 @@ export default function UploadExperience({ jwt }) {
               />
             </div>
             <div className="col-span-2">
-              <h1 className="font-semibold text-slate-800">Company</h1>
-
+              <h1 className="font-semibold text-slate-800">
+                Interview Experience
+              </h1>
               <textarea
                 type="text"
                 cols={60}
@@ -136,12 +137,11 @@ export default function UploadExperience({ jwt }) {
                 placeholder="Interview experience"
                 value={interviewExperience}
                 onChange={(e) => setInterviewExperience(e.target.value)}
-                className="border-[1px] border-gray-300 py-3 px-2 rounded-lg outline-none  mt-5"
+                className="border-[1px] border-gray-300 py-3 px-2 rounded-lg outline-none mt-5"
               />
             </div>
             <div className="col-span-2">
-              <h1 className="font-semibold text-slate-800">Company</h1>
-
+              <h1 className="font-semibold text-slate-800">Preparation</h1>
               <textarea
                 type="text"
                 cols={60}
@@ -149,26 +149,24 @@ export default function UploadExperience({ jwt }) {
                 placeholder="Preparation"
                 value={preparation}
                 onChange={(e) => setPreparation(e.target.value)}
-                className="border-[1px] border-gray-300 py-3 px-2 rounded-lg outline-none  mt-5"
+                className="border-[1px] border-gray-300 py-3 px-2 rounded-lg outline-none mt-5"
               />
             </div>
             <div className="col-span-2">
-              <h1 className="font-semibold text-slate-800">Company</h1>
-
+              <h1 className="font-semibold text-slate-800">Tip</h1>
               <textarea
                 type="text"
                 cols={60}
                 rows={5}
                 placeholder="Tip"
-                mt-5
                 value={tip}
                 onChange={(e) => setTip(e.target.value)}
-                className="border-[1px] border-gray-300 py-3 px-2 rounded-lg outline-none  mt-5"
+                className="border-[1px] border-gray-300 py-3 px-2 rounded-lg outline-none mt-5"
               />
               <div className="mt-5">
                 <button
                   onClick={handleSubmit}
-                  className="bg-blue-600 text-white rounded-lg font-semibold w-full  py-2.5"
+                  className="bg-blue-600 text-white rounded-lg font-semibold w-full py-2.5"
                 >
                   Save
                 </button>

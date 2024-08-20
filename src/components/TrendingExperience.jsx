@@ -179,6 +179,10 @@ export default function TrendingExperience() {
                   Likes: i.Likes,
                   upvotes: i.upvotes,
                   _id: i._id,
+                  applicationStory: i.applicationStory,
+                  selectionReason: i.selectionReason,
+                  preparation: i.preparation,
+                  tip: i.tip,
                 }}
                 className="w-[80vw] md:w-[50vw] lg:w-[40vw] mx-auto p-5 border-[1px] border-gray-300 rounded-lg cursor-pointer"
               >
