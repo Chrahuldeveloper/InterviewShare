@@ -1,112 +1,43 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Navbar } from "../components";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 export default function Blogs() {
-  const blogs = [
-    {
-      title: "Lorem, ipsum dolor Lorem, ipsum dolor",
-      img: "https://images.pexels.com/photos/22708188/pexels-photo-22708188/free-photo-of-man-fishing-on-seashore-with-dog.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
-      sections: [
-        {
-          title: "Praesent dignissim nisi nec leo gravida, vitae",
-          para: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum orci non tortor consequat, a efficitur purus posuere. Praesent dignissim nisi nec leo gravida, vitae.",
-        },
-        {
-          title: "Praesent dignissim nisi nec leo gravida, vitae",
-          para: "Nulla facilisi. Ut fringilla quam id sapien faucibus, ac aliquet nisl iaculis. Etiam euismod felis id dui congue lacinia.",
-        },
-        {
-          title: "Praesent dignissim nisi nec leo gravida, vitae",
-          para: "Praesent dignissim nisi nec leo gravida, vitae consectetur est pellentesque. Cras suscipit lacus sit amet libero sollicitudin, id consequat ligula vehicula.",
-        },
-      ],
-    },
-    {
-      title: "Lorem, ipsum dolor Lorem, ipsum dolor",
-      img: "https://images.pexels.com/photos/22708188/pexels-photo-22708188/free-photo-of-man-fishing-on-seashore-with-dog.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
-      sections: [
-        {
-          title: "Praesent dignissim nisi nec leo gravida, vitae",
-          para: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum orci non tortor consequat, a efficitur purus posuere. Praesent dignissim nisi nec leo gravida, vitae.",
-        },
-        {
-          title: "Praesent dignissim nisi nec leo gravida, vitae",
-          para: "Nulla facilisi. Ut fringilla quam id sapien faucibus, ac aliquet nisl iaculis. Etiam euismod felis id dui congue lacinia.",
-        },
-        {
-          title: "Praesent dignissim nisi nec leo gravida, vitae",
-          para: "Praesent dignissim nisi nec leo gravida, vitae consectetur est pellentesque. Cras suscipit lacus sit amet libero sollicitudin, id consequat ligula vehicula.",
-        },
-      ],
-    },
-    {
-      title: "Lorem, ipsum dolor Lorem, ipsum dolor",
-      img: "https://images.pexels.com/photos/22708188/pexels-photo-22708188/free-photo-of-man-fishing-on-seashore-with-dog.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
-      sections: [
-        {
-          title: "Praesent dignissim nisi nec leo gravida, vitae",
-          para: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum orci non tortor consequat, a efficitur purus posuere. Praesent dignissim nisi nec leo gravida, vitae.",
-        },
-        {
-          title: "Praesent dignissim nisi nec leo gravida, vitae",
-          para: "Nulla facilisi. Ut fringilla quam id sapien faucibus, ac aliquet nisl iaculis. Etiam euismod felis id dui congue lacinia.",
-        },
-        {
-          title: "Praesent dignissim nisi nec leo gravida, vitae",
-          para: "Praesent dignissim nisi nec leo gravida, vitae consectetur est pellentesque. Cras suscipit lacus sit amet libero sollicitudin, id consequat ligula vehicula.",
-        },
-      ],
-    },
-    {
-      title: "Lorem, ipsum dolor Lorem, ipsum dolor",
-      img: "https://images.pexels.com/photos/22708188/pexels-photo-22708188/free-photo-of-man-fishing-on-seashore-with-dog.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
-      sections: [
-        {
-          title: "Praesent dignissim nisi nec leo gravida, vitae",
-          para: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum orci non tortor consequat, a efficitur purus posuere. Praesent dignissim nisi nec leo gravida, vitae.",
-        },
-        {
-          title: "Praesent dignissim nisi nec leo gravida, vitae",
-          para: "Nulla facilisi. Ut fringilla quam id sapien faucibus, ac aliquet nisl iaculis. Etiam euismod felis id dui congue lacinia.",
-        },
-        {
-          title: "Praesent dignissim nisi nec leo gravida, vitae",
-          para: "Praesent dignissim nisi nec leo gravida, vitae consectetur est pellentesque. Cras suscipit lacus sit amet libero sollicitudin, id consequat ligula vehicula.",
-        },
-      ],
-    },
-    {
-      title: "Lorem, ipsum dolor Lorem, ipsum dolor",
-      img: "https://images.pexels.com/photos/22708188/pexels-photo-22708188/free-photo-of-man-fishing-on-seashore-with-dog.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
-      sections: [
-        {
-          title: "Praesent dignissim nisi nec leo gravida, vitae",
-          para: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum orci non tortor consequat, a efficitur purus posuere. Praesent dignissim nisi nec leo gravida, vitae.",
-        },
-        {
-          title: "Praesent dignissim nisi nec leo gravida, vitae",
-          para: "Nulla facilisi. Ut fringilla quam id sapien faucibus, ac aliquet nisl iaculis. Etiam euismod felis id dui congue lacinia.",
-        },
-        {
-          title: "Praesent dignissim nisi nec leo gravida, vitae",
-          para: "Praesent dignissim nisi nec leo gravida, vitae consectetur est pellentesque. Cras suscipit lacus sit amet libero sollicitudin, id consequat ligula vehicula.",
-        },
-      ],
-    },
-  ];
+  const [blogs, setBlogs] = useState([]);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const response = await axios.get("http://localhost:9000/blogs");
+        setBlogs(response.data);
+      } catch (error) {
+        console.error("Error fetching blogs:", error);
+      }
+    };
+
+    fetchBlogs();
+  }, []);
 
   return (
     <>
       <Navbar />
       <div className="px-10 py-5">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {blogs.map((blog, index) => (
+          {blogs.map((blog) => (
             <Link
-              to={`/blog/${blog?._id}`}
-              className="border-[1px] border-gray-200 p-5 max-w-lg space-y-3 rounded-lg cursor-pointer"
+              key={blog._id}
+              to={`/blog/${blog._id}`}
+              state={{
+                id: blog._id,
+                img: blog.img,
+                title: blog.title,
+                sections: blog.sections,
+                comments : blog.comments
+              }}
+              className="border-[1px] border-gray-200 p-5 ax-w-lg space-y-3 rounded-lg cursor-pointer"
             >
-              <div key={index}>
+              <div>
                 <div>
                   <img
                     className="duration-300 ease-in rounded-lg hover:brightness-75"
