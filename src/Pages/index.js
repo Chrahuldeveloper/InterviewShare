@@ -5,6 +5,7 @@ import Profile from "./Profile";
 import ReadFullBlog from "./ReadFullBlog";
 import UploadExperience from "./UploadExperience";
 import Blogs from "./Blogs";
+import WriteBlog from "./WriteBlog";
 
 export {
   Blogs,
@@ -14,4 +15,5 @@ export {
   Profile,
   ReadFullBlog,
   UploadExperience,
+  WriteBlog,
 };

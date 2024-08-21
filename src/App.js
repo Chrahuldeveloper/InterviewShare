@@ -7,6 +7,7 @@ import {
   ReadFullExperience,
   SignUp,
   UploadExperience,
+  WriteBlog,
 } from "./Pages";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
@@ -19,7 +20,8 @@ export default function App() {
       <Route path="/user/:userid" element={<Profile />} />
       <Route path="/blog/:blogid" element={<ReadFullBlog />} />
       <Route path="/upload/experience" element={<UploadExperience />} />
-      <Route path="/blogs" element={<Blogs/>} />
+      <Route path="/blogs" element={<Blogs />} />
+      <Route path="/write/blog" element={<WriteBlog />} />
     </Routes>
   );
 }
