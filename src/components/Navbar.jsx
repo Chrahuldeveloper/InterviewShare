@@ -9,7 +9,7 @@ export default function Navbar({ profile }) {
         <h1 className="text-lg">InterviewShare</h1>
         <CiMenuFries size={28} color="gray" className="cursor-pointer" />
       </div>
-      <nav className="items-center justify-between hidden px-10 py-3 border-b-2 border-gray-300 shadow-sm md:flex">
+      <nav className="items-center justify-between hidden px-10 py-3 border-b-[1px] border-gray-300 md:flex">
         <div className="hidden px-4 md:px-0 md:block">
           <h1 className="text-lg">InterviewShare</h1>
         </div>

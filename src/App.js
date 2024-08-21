@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  Blogs,
   Home,
   Profile,
   ReadFullBlog,
@@ -18,6 +19,7 @@ export default function App() {
       <Route path="/user/:userid" element={<Profile />} />
       <Route path="/blog/:blogid" element={<ReadFullBlog />} />
       <Route path="/upload/experience" element={<UploadExperience />} />
+      <Route path="/blogs" element={<Blogs/>} />
     </Routes>
   );
 }
