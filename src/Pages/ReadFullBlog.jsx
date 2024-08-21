@@ -26,7 +26,7 @@ export default function ReadFullBlog() {
   return (
     <>
       <Navbar />
-      <div className="max-w-3xl my-4 md:ml-48">
+      <div className="max-w-3xl my-4 md:ml-52 bg-white border-[1px] border-gray-300 p-5">
         {Blogs.map((blog, index) => (
           <div key={index}>
             <h2 className="text-lg font-semibold underline text-slate-800 md:text-xl">
@@ -38,13 +38,28 @@ export default function ReadFullBlog() {
               className="my-3.5 rounded-lg"
             />
             {blog.sections.map((section, secIndex) => (
-              <div key={secIndex} className="mt-5 space-y-2">
+              <div key={secIndex} className="mt-5 space-y-3">
                 <h3 className="text-lg font-semibold">{section.tittle}</h3>
                 <p className="text-gray-500 ">{section.para}</p>
               </div>
             ))}
           </div>
         ))}
+        <div className="my-5 space-y-3">
+          <div>
+            <h1 className="text-lg font-semibold text-slate-800">Comments</h1>
+          </div>
+          <input
+            type="text"
+            className="border-b-[1px] border-slate-300 outline-none w-full mb-2"
+            placeholder="Write comment"
+          />
+          <div className="flex justify-end">
+            <button className="font-semibold text-white bg-blue-500 rounded-full px-5 py-1.5 text-sm">
+              Comment
+            </button>
+          </div>
+        </div>
       </div>
     </>
   );

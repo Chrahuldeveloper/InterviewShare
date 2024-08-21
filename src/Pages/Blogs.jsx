@@ -1,5 +1,6 @@
 import React from "react";
 import { Navbar } from "../components";
+import { Link } from "react-router-dom";
 
 export default function Blogs() {
   const blogs = [
@@ -101,23 +102,25 @@ export default function Blogs() {
       <div className="px-10 py-5">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {blogs.map((blog, index) => (
-            <div
-              key={index}
+            <Link
+              to={`/blog/${blog?._id}`}
               className="border-[1px] border-gray-200 p-5 max-w-lg space-y-3 rounded-lg cursor-pointer"
             >
-              <div>
-                <img
-                  className="duration-300 ease-in rounded-lg hover:brightness-75"
-                  src={blog.img}
-                  alt={blog.title}
-                />
+              <div key={index}>
+                <div>
+                  <img
+                    className="duration-300 ease-in rounded-lg hover:brightness-75"
+                    src={blog.img}
+                    alt={blog.title}
+                  />
+                </div>
+                <div>
+                  <h1 className="text-lg font-semibold underline text-slate-800">
+                    {blog.title}
+                  </h1>
+                </div>
               </div>
-              <div>
-                <h1 className="text-lg font-semibold underline text-slate-800">
-                  {blog.title}
-                </h1>
-              </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
