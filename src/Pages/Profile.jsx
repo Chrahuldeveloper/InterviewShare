@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { EditModel, Navbar } from "../components";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 export default function Profile() {
@@ -136,24 +136,26 @@ export default function Profile() {
         <div className="grid grid-cols-3 gap-5 mx-auto my-6 md:max-w-7xl">
           {userData.blogs.map((item, i) => {
             return (
-              <div
-                key={i}
-                className="border-[1px] border-gray-200 p-5 max-w-md space-y-3 rounded-lg cursor-pointer"
-              >
-                <div>
-                  <img
-                    src={item.img}
-                    alt=""
-                    className="duration-300 ease-in rounded-lg hover:brightness-75"
-                  />
+              <Link to={`/blog/${item._id}`}>
+                <div
+                  key={i}
+                  className="border-[1px] border-gray-200 p-5 max-w-md space-y-3 rounded-lg cursor-pointer"
+                >
+                  <div>
+                    <img
+                      src={item.img}
+                      alt=""
+                      className="duration-300 ease-in rounded-lg hover:brightness-75"
+                    />
+                  </div>
+                  <div className="space-y-3.5">
+                    <h1 className="text-xl font-semibold underline text-slate-800">
+                      {item.title}
+                    </h1>
+                    <p className="text-sm text-gray-500">{item.para}</p>
+                  </div>
                 </div>
-                <div className="space-y-3.5">
-                  <h1 className="text-xl font-semibold underline text-slate-800">
-                    {item.title}
-                  </h1>
-                  <p className="text-sm text-gray-500">{item.para}</p>
-                </div>
-              </div>
+              </Link>
             );
           })}
         </div>

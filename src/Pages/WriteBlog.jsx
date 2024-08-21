@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Navbar } from "../components";
 import { IoIosAdd } from "react-icons/io";
+import axios from "axios";
 
 export default function WriteBlog() {
   const [title, setTitle] = useState("");
@@ -17,7 +18,7 @@ export default function WriteBlog() {
     setSections([...sections, { title: "", para: "" }]);
   };
 
-  const handleSubmit = () => {
+  const uploadBlog = async () => {
     const blogData = {
       title,
       img,
@@ -25,6 +26,22 @@ export default function WriteBlog() {
     };
 
     console.log(blogData);
+
+    try {
+      const response = await axios.post(
+        `http://localhost:9000/blog/66c36c272ad08e112437da05`,
+        { title, img, sections }
+      );
+
+      if (response.status === 200) {
+        alert("Blog uploaded successfully!");
+      } else {
+        alert("Failed to upload blog.");
+      }
+    } catch (error) {
+      console.error("Error uploading blog:", error);
+      alert("Error uploading blog.");
+    }
   };
 
   return (
@@ -80,7 +97,7 @@ export default function WriteBlog() {
           </div>
           <button
             className="w-full px-6 py-3 mt-5 text-white bg-blue-600 rounded-lg"
-            onClick={handleSubmit}
+            onClick={uploadBlog}
           >
             Submit Blog
           </button>
