@@ -1,7 +1,29 @@
 import React from "react";
 import { FaGoogle } from "react-icons/fa";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { auth, db } from "../Firebase";
+import { doc, setDoc } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
 
 export default function SignupForm() {
+  const navigate = useNavigate();
+  const provider = new GoogleAuthProvider();
+
+  const GoogleSignIn = async () => {
+    try {
+      const res = await signInWithPopup(auth, provider);
+      await setDoc(doc(db, "USERS", res.user.uid), {
+        Name: res.user.displayName,
+        Email: res.user.email,
+        photo: res.user.photoURL,
+      });
+      localStorage.setItem("jwt", res.user.uid);
+      navigate("/home");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className=" max-w-md mx-auto mt-8 border-[1px] p-8 border-gray-300 rounded-lg">
       <div className="space-y-4 text-slate-800">
@@ -37,15 +59,8 @@ export default function SignupForm() {
           --Or Sign Up using--
         </h1>
         <div className="flex justify-center mt-4 border-[1px] w-14 h-14 items-center rounded-full mx-auto p-4">
-          <FaGoogle size={40} />
+          <FaGoogle onClick={GoogleSignIn} size={40} />
         </div>
-      </div>
-
-      <div className="text-center">
-        <p>
-          Already a User?
-          <span className="font-bold text-blue-500"> Login</span>
-        </p>
       </div>
     </div>
   );
