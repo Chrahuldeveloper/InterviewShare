@@ -27,7 +27,6 @@ export default function Profile() {
       });
   }, [userid]);
 
-  console.log(userData);
 
   return (
     <div className="overflow-x-scroll bg-[#fafafa]">
@@ -41,7 +40,7 @@ export default function Profile() {
         />
         <div className="mt-4 space-y-5 text-center">
           <h1 className="text-lg font-semibold text-slate-800">
-            {userData.Name}
+            {userData.name}
           </h1>
           <p className="max-w-md mx-auto text-center text-slate-500">
             {userData.bio}
@@ -74,7 +73,7 @@ export default function Profile() {
           Your Experiences
         </h1>
         <div className="grid grid-cols-2 gap-5 mt-7">
-          {userData.interviews.map((i, idx) => {
+          {userData?.interviews?.map((i, idx) => {
             return (
               <div
                 key={idx}
@@ -133,7 +132,7 @@ export default function Profile() {
           Your Blogs
         </h1>
         <div className="grid grid-cols-3 gap-5 mx-auto my-6 md:max-w-7xl">
-          {userData.blogs.map((item, i) => {
+          {userData?.blogs?.map((item, i) => {
             return (
               <Link to={`/blog/${item._id}`} key={i}>
                 <div className="border-[1px] border-gray-200 p-5 max-w-md space-y-3 rounded-lg cursor-pointer">
