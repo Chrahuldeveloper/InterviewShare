@@ -9,7 +9,7 @@ import {
   UploadExperience,
   WriteBlog,
 } from "./Pages";
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
 
 export default function App() {
@@ -26,12 +26,10 @@ export default function App() {
           <Route path="/upload/experience" element={<UploadExperience />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/write/blog" element={<WriteBlog />} />
-          <Route path="*" element={<Navigate to="/home" />} />
         </>
       ) : (
         <>
           <Route path="/" element={<SignUp />} />
-          <Route path="*" element={<Navigate to="/" />} />
         </>
       )}
     </Routes>
