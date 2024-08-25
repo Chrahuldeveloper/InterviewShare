@@ -1,67 +1,97 @@
-import React from "react";
-import { FaGoogle } from "react-icons/fa";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { auth, db } from "../Firebase";
-import { doc, setDoc } from "firebase/firestore";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export default function SignupForm() {
   const navigate = useNavigate();
-  const provider = new GoogleAuthProvider();
+  const [formData, setFormData] = useState({
+    Name: "",
+    email: "",
+    password: "",
+  });
 
-  const GoogleSignIn = async () => {
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!formData.Name || !formData.email || !formData.password) {
+      alert("Please fill in all fields");
+      return;
+    }
+
     try {
-      const res = await signInWithPopup(auth, provider);
-      await setDoc(doc(db, "USERS", res.user.uid), {
-        Name: res.user.displayName,
-        Email: res.user.email,
-        photo: res.user.photoURL,
-      });
-      localStorage.setItem("jwt", res.user.uid);
-      navigate("/home");
+      const response = await axios.post(
+        "http://localhost:9000/signup",
+        formData
+      );
+      if (response.status === 200) {
+        localStorage.setItem("jwt", response.data);
+        navigate(`/home`);
+      }
     } catch (error) {
-      console.log(error);
+      if (error.response && error.response.status === 400) {
+        alert("User already exists");
+      } else {
+        console.error("Error signing up:", error);
+      }
     }
   };
 
   return (
-    <div className=" max-w-md mx-auto mt-8 border-[1px] p-8 border-gray-300 rounded-lg">
+    <div className="max-w-md mx-auto mt-8 border-[1px] p-8 border-gray-300 rounded-lg">
       <div className="space-y-4 text-slate-800">
         <h1 className="text-2xl font-bold">SignUp</h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
       </div>
-      <form className="mt-4 space-y-6">
+      <form onSubmit={handleSubmit} className="mt-4 space-y-6">
+        <div className="flex flex-col space-y-3">
+          <label className="font-semibold text-slate-800">Name</label>
+          <input
+            type="text"
+            name="Name"
+            placeholder="Name"
+            value={formData.Name}
+            onChange={handleChange}
+            className="border-[1px] border-gray-300 py-3 px-2 rounded-lg outline-none"
+          />
+        </div>
         <div className="flex flex-col space-y-3">
           <label className="font-semibold text-slate-800">Email</label>
           <input
-            type="text"
+            type="email"
+            name="email"
             placeholder="Email"
+            value={formData.email}
+            onChange={handleChange}
             className="border-[1px] border-gray-300 py-3 px-2 rounded-lg outline-none"
           />
         </div>
         <div className="flex flex-col space-y-3">
           <label className="font-semibold text-slate-800">Password</label>
           <input
-            type="text"
+            type="password"
+            name="password"
             placeholder="Password"
+            value={formData.password}
+            onChange={handleChange}
             className="border-[1px] border-gray-300 py-3 px-2 rounded-lg outline-none"
           />
         </div>
         <div>
-          <button className="bg-blue-600 text-white rounded-lg font-semibold w-full py-2.5">
+          <button
+            type="submit"
+            className="bg-blue-600 text-white rounded-lg font-semibold w-full py-2.5"
+          >
             Sign in
           </button>
         </div>
       </form>
-
-      <div className="my-6">
-        <h1 className="font-semibold text-center text-gray-400">
-          --Or Sign Up using--
-        </h1>
-        <div className="flex justify-center mt-4 border-[1px] w-14 h-14 items-center rounded-full mx-auto p-4">
-          <FaGoogle onClick={GoogleSignIn} size={40} />
-        </div>
-      </div>
     </div>
   );
 }
