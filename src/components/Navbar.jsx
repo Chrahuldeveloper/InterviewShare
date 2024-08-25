@@ -3,6 +3,8 @@ import { CiMenuFries } from "react-icons/ci";
 import { Link } from "react-router-dom";
 
 export default function Navbar({ profile }) {
+  const jwt = localStorage.getItem("jwt");
+
   return (
     <>
       <div className="flex items-center justify-between px-5 py-3 md:hidden">
@@ -21,7 +23,7 @@ export default function Navbar({ profile }) {
             <li className="font-semibold cursor-pointer">Blogs</li>
           </Link>
           {profile ? null : (
-            <Link to="/user/66c36c272ad08e112437da05">
+            <Link to={`/user/${jwt}`}>
               <li className="px-6 py-2 font-semibold text-white bg-blue-600 rounded-lg cursor-pointer">
                 Your account
               </li>
