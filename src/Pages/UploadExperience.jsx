@@ -14,12 +14,40 @@ export default function UploadExperience({ jwt }) {
   const [tip, setTip] = useState("");
 
   const salaryRanges = [
-    "All",
+    "salaryRanges",
     "2 LPA to 5 LPA",
     "5 LPA to 8 LPA",
     "8 LPA to 12 LPA",
     "12 LPA to 20 LPA",
     "20 LPA and above",
+  ];
+
+  const locations = [
+    "locations",
+    "Bangalore",
+    "Mumbai",
+    "Delhi",
+    "Hyderabad",
+    "Chennai",
+    "Pune",
+    "Kolkata",
+    "Gurgaon",
+    "Noida",
+    "Ahmedabad",
+  ];
+
+  const companies = [
+    "companies",
+    "Tata Consultancy Services",
+    "Infosys",
+    "Wipro",
+    "Cognizant",
+    "Accenture",
+    "HCL Technologies",
+    "Tech Mahindra",
+    "IBM",
+    "Capgemini",
+    "Mindtree",
   ];
 
   const handleSubmit = async () => {
@@ -66,30 +94,33 @@ export default function UploadExperience({ jwt }) {
                 ))}
               </select>
             </div>
-            <div className="border-[1px] border-gray-200 rounded-lg py-2 text-center col-span-2 md:w-[31vw] w-[91vw]">
-              <select
-                value={location}
-                onChange={(e) => setLocation(e.target.value)}
-                className="outline-none px-3 md:w-[31vw] w-[91vw]"
-              >
-                {salaryRanges.map((range, index) => (
-                  <option key={index} value={range}>
-                    {range}
-                  </option>
-                ))}
-              </select>
-            </div>
             <div className="col-span-2">
-              <h1 className="font-semibold text-slate-800">Company</h1>
-              <input
-                type="text"
-                placeholder="Company"
-                value={company}
-                onChange={(e) => setCompany(e.target.value)}
-                className="border-[1px] border-gray-300 py-3 px-2 rounded-lg outline-none md:w-[31vw] w-[91vw] mt-5"
-              />
-            </div>
-            <div className="col-span-2">
+              <div className="border-[1px] border-gray-200 rounded-lg py-2 text-center col-span-2 md:w-[31vw] w-[91vw]">
+                <select
+                  value={location}
+                  onChange={(e) => setLocation(e.target.value)}
+                  className="outline-none px-3 md:w-[31vw] w-[91vw]"
+                >
+                  {locations.map((loc, index) => (
+                    <option key={index} value={loc}>
+                      {loc}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div className="border-[1px] my-5 border-gray-200 rounded-lg py-2 text-center col-span-2 md:w-[31vw] w-[91vw]">
+                <select
+                  value={company}
+                  onChange={(e) => setCompany(e.target.value)}
+                  className="outline-none px-3 md:w-[31vw] w-[91vw]"
+                >
+                  {companies.map((comp, index) => (
+                    <option key={index} value={comp}>
+                      {comp}
+                    </option>
+                  ))}
+                </select>
+              </div>
               <h1 className="font-semibold text-slate-800">Role</h1>
               <input
                 type="text"
@@ -99,7 +130,6 @@ export default function UploadExperience({ jwt }) {
                 className="border-[1px] border-gray-300 py-3 px-2 rounded-lg outline-none md:w-[31vw] w-[91vw] mt-5"
               />
             </div>
-
             <div className="col-span-2">
               <h1 className="font-semibold text-slate-800">Journey</h1>
               <textarea

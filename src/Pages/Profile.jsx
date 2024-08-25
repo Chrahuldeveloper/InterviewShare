@@ -27,7 +27,6 @@ export default function Profile() {
       });
   }, [userid]);
 
-
   return (
     <div className="overflow-x-scroll bg-[#fafafa]">
       <Navbar profile={true} />
