@@ -14,7 +14,7 @@ export default function UploadExperience({ jwt }) {
   const [tip, setTip] = useState("");
 
   const salaryRanges = [
-    "salaryRanges",
+    "SalaryRanges",
     "2 LPA to 5 LPA",
     "5 LPA to 8 LPA",
     "8 LPA to 12 LPA",
@@ -23,7 +23,7 @@ export default function UploadExperience({ jwt }) {
   ];
 
   const locations = [
-    "locations",
+    "Locations",
     "Bangalore",
     "Mumbai",
     "Delhi",
@@ -37,7 +37,7 @@ export default function UploadExperience({ jwt }) {
   ];
 
   const companies = [
-    "companies",
+    "Companies",
     "Tata Consultancy Services",
     "Infosys",
     "Wipro",
