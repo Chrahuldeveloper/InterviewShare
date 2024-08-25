@@ -8,12 +8,14 @@ export default function EditModel({ user }) {
 
   const handleSave = async () => {
     try {
-      const response = await axios.put(`/api/user/${user.jwt}`, {
-        name,
-        bio,
-        ProfilePic,
-      });
-
+      const response = await axios.put(
+        `http://localhost:9000/user/update/${user.jwt}`,
+        {
+          name,
+          bio,
+          ProfilePic,
+        }
+      );
       if (response.status === 200) {
         console.log("Profile updated successfully:", response.data.user);
       }
