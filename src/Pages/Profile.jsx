@@ -48,7 +48,12 @@ export default function Profile() {
             }
           </p>
           <div className="grid max-w-md grid-cols-2 gap-3 mx-auto lg:max-w-lg">
-            <button className="px-5 py-2.5 text-sm font-semibold text-black duration-500 ease-in-out border-[1px] border-blue-500 rounded-lg hover:bg-blue-500  hover:text-white">
+            <button
+              onClick={() => {
+                navigate(" /write/blog");
+              }}
+              className="px-5 py-2.5 text-sm font-semibold text-black duration-500 ease-in-out border-[1px] border-blue-500 rounded-lg hover:bg-blue-500  hover:text-white"
+            >
               Upload Blog
             </button>
             <button
