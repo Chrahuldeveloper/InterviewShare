@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { RxCross2 } from "react-icons/rx";
 
-export default function EditModel({ user }) {
+export default function EditModel({ user, userid, setisedit }) {
   const [name, setName] = useState(user.name || "");
   const [bio, setBio] = useState(user.bio || "");
   const [ProfilePic, setProfilePic] = useState(user.profilePic || "");
@@ -9,7 +10,7 @@ export default function EditModel({ user }) {
   const handleSave = async () => {
     try {
       const response = await axios.put(
-        `http://localhost:9000/user/update/${user.jwt}`,
+        `http://localhost:9000/user/update/${userid}`,
         {
           name,
           bio,
@@ -27,6 +28,15 @@ export default function EditModel({ user }) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center h-full bg-black bg-opacity-60 backdrop-blur-md">
       <div className="p-5 bg-white rounded-md lg:w-[30vw]">
+        <div className="flex justify-end">
+          <RxCross2
+            size={25}
+            color="black"
+            onClick={() => {
+              setisedit(false);
+            }}
+          />
+        </div>
         <div className="flex flex-col space-y-3">
           <label className="font-semibold text-slate-800">Name</label>
           <input

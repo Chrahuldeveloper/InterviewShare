@@ -17,7 +17,7 @@ export default function Profile() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:9000/user/${userid}`)
+      .get(`http://localhost:9000/user/update/${userid}`)
       .then((response) => {
         setUserData(response.data);
         console.log(response.data);
@@ -153,7 +153,7 @@ export default function Profile() {
           })}
         </div>
       </div>
-      {isedit && <EditModel user={userData} />}
+      {isedit ? <EditModel user={userData} userid={userid} setisedit={setisedit}/> : null}
     </div>
   );
 }
