@@ -4,14 +4,20 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 export default function Profile() {
-  const [userData, setUserData] = useState({ interviews: [], blogs: [] });
+  const [userData, setUserData] = useState({
+    Name: "",
+    ProfilePic: "",
+    bio: "",
+    interviews: [],
+    blogs: [],
+  });
   const navigate = useNavigate();
   const [isedit, setisedit] = useState(false);
   const { userid } = useParams();
 
   useEffect(() => {
     axios
-      .get(`http://localhost:9000/${userid}`)
+      .get(`http://localhost:9000/user/${userid}`)
       .then((response) => {
         setUserData(response.data);
         console.log(response.data);
@@ -21,40 +27,28 @@ export default function Profile() {
       });
   }, [userid]);
 
+  console.log(userData);
+
   return (
     <div className="overflow-x-scroll bg-[#fafafa]">
       <Navbar profile={true} />
-      <div
-        className="w-[90vw] h-56 mx-auto mt-5 rounded-lg"
-        style={{
-          backgroundImage: `url('https://marketplace.canva.com/EAE2cQaUHVA/1/0/400w/canva-black-minimal-motivation-quote-linkedin-banner-6a_M22OYl6w.jpg')`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      ></div>
-      <div className="-translate-y-10">
+
+      <div className="mt-5">
         <img
           className="object-cover w-32 h-32 mx-auto duration-300 ease-in-out rounded-full hover:brightness-75"
-          src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=600"
-          alt=""
+          src={userData.ProfilePic}
+          alt={`profile`}
         />
         <div className="mt-4 space-y-5 text-center">
           <h1 className="text-lg font-semibold text-slate-800">
             {userData.Name}
           </h1>
           <p className="max-w-md mx-auto text-center text-slate-500">
-            {
-              "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem in, laboriosam maxime similique impedit incidunt?"
-            }
+            {userData.bio}
           </p>
           <div className="grid max-w-md grid-cols-2 gap-3 mx-auto lg:max-w-lg">
-            <button
-              onClick={() => {
-                navigate(" /write/blog");
-              }}
-              className="px-5 py-2.5 text-sm font-semibold text-black duration-500 ease-in-out border-[1px] border-blue-500 rounded-lg hover:bg-blue-500  hover:text-white"
-            >
-              Upload Blog
+            <button className="px-5 py-2.5 text-sm font-semibold text-black duration-500 ease-in-out border-[1px] border-blue-500 rounded-lg hover:bg-blue-500  hover:text-white">
+              <Link to="/write/blog">Upload Blog</Link>
             </button>
             <button
               onClick={() => {
@@ -141,11 +135,8 @@ export default function Profile() {
         <div className="grid grid-cols-3 gap-5 mx-auto my-6 md:max-w-7xl">
           {userData.blogs.map((item, i) => {
             return (
-              <Link to={`/blog/${item._id}`}>
-                <div
-                  key={i}
-                  className="border-[1px] border-gray-200 p-5 max-w-md space-y-3 rounded-lg cursor-pointer"
-                >
+              <Link to={`/blog/${item._id}`} key={i}>
+                <div className="border-[1px] border-gray-200 p-5 max-w-md space-y-3 rounded-lg cursor-pointer">
                   <div>
                     <img
                       src={item.img}

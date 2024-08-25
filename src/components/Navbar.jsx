@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 export default function Navbar({ profile }) {
   const jwt = localStorage.getItem("jwt");
-
   return (
     <>
       <div className="flex items-center justify-between px-5 py-3 md:hidden">
