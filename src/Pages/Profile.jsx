@@ -5,8 +5,8 @@ import axios from "axios";
 
 export default function Profile() {
   const [userData, setUserData] = useState({
-    Name: "",
-    ProfilePic: "",
+    name: "",
+    profilepic: "",
     bio: "",
     interviews: [],
     blogs: [],
@@ -27,18 +27,20 @@ export default function Profile() {
       });
   }, [userid]);
 
+  console.log(userData);
+
   return (
     <div className="overflow-x-scroll bg-[#fafafa]">
       <Navbar profile={true} />
       <div className="mt-5">
         <img
           className="object-cover w-32 h-32 mx-auto duration-300 ease-in-out rounded-full hover:brightness-75"
-          src={userData?.ProfilePic}
+          src={userData?.profilepic}
           alt={`profile`}
         />
         <div className="mt-4 space-y-5 text-center">
           <h1 className="text-lg font-semibold text-slate-800">
-            {userData?.Name}
+            {userData?.name}
           </h1>
           <p className="max-w-md mx-auto text-center text-slate-500">
             {userData?.bio}
@@ -153,7 +155,9 @@ export default function Profile() {
           })}
         </div>
       </div>
-      {isedit ? <EditModel user={userData} userid={userid} setisedit={setisedit}/> : null}
+      {isedit ? (
+        <EditModel user={userData} userid={userid} setisedit={setisedit} />
+      ) : null}
     </div>
   );
 }

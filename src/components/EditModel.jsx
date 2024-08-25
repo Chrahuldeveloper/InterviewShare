@@ -3,9 +3,9 @@ import axios from "axios";
 import { RxCross2 } from "react-icons/rx";
 
 export default function EditModel({ user, userid, setisedit }) {
-  const [name, setName] = useState(user.name || "");
+  const [name, setname] = useState(user.name || "");
   const [bio, setBio] = useState(user.bio || "");
-  const [ProfilePic, setProfilePic] = useState(user.profilePic || "");
+  const [profilepic, setprofilepic] = useState(user.profilePic || "");
 
   const handleSave = async () => {
     try {
@@ -14,7 +14,7 @@ export default function EditModel({ user, userid, setisedit }) {
         {
           name,
           bio,
-          ProfilePic,
+          profilepic,
         }
       );
       if (response.status === 200) {
@@ -35,6 +35,7 @@ export default function EditModel({ user, userid, setisedit }) {
             onClick={() => {
               setisedit(false);
             }}
+            cursor={"pointer"}
           />
         </div>
         <div className="flex flex-col space-y-3">
@@ -43,7 +44,7 @@ export default function EditModel({ user, userid, setisedit }) {
             type="text"
             placeholder="Your Name"
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => setname(e.target.value)}
             className="border-[1px] border-gray-300 py-3 px-2 rounded-lg outline-none"
           />
         </div>
@@ -62,8 +63,8 @@ export default function EditModel({ user, userid, setisedit }) {
           <input
             type="text"
             placeholder="Picture"
-            value={ProfilePic}
-            onChange={(e) => setProfilePic(e.target.value)}
+            value={profilepic}
+            onChange={(e) => setprofilepic(e.target.value)}
             className="border-[1px] border-gray-300 py-3 px-2 rounded-lg outline-none"
           />
         </div>

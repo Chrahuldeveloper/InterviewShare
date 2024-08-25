@@ -167,13 +167,13 @@ export default function TrendingExperience() {
                   position: i.position,
                   experience: i.experience,
                   date: i.date,
-                  Name: i.Name,
+                  name: i.name,
                   selected: i.selected,
                   Level: i.Level,
                   rounds: i.rounds,
                   CGPA: i.CGPA,
                   NumberofProblems: i.NumberofProblems,
-                  ProfilePic: i.ProfilePic,
+                  profilepic: i.profilepic,
                   interviewPlace: i.interviewPlace,
                   collage: i.collage,
                   Likes: i.Likes,
@@ -184,7 +184,6 @@ export default function TrendingExperience() {
                   selectionReason: i.selectionReason,
                   preparation: i.preparation,
                   tip: i.tip,
-
                 }}
                 className="w-[80vw] md:w-[50vw] lg:w-[40vw] mx-auto p-5 border-[1px] border-gray-300 rounded-lg cursor-pointer"
               >
@@ -201,13 +200,13 @@ export default function TrendingExperience() {
                   </div>
                   <div className="flex items-center gap-10">
                     <img
-                      src={i.ProfilePic}
+                      src={i.profilepic}
                       alt=""
                       className="object-cover w-10 h-10 rounded-full border-[1px] border-gray-300"
                     />
                     <div>
                       <h1 className="flex items-center gap-3">
-                        <span className="font-semibold">{i.Name}</span> |{" "}
+                        <span className="font-semibold">{i.name}</span> |{" "}
                         <span className="text-sm text-gray-800">
                           Level {i.Level}
                         </span>{" "}
