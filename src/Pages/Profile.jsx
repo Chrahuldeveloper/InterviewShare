@@ -15,6 +15,7 @@ export default function Profile() {
   const [isedit, setisedit] = useState(false);
   const { userid } = useParams();
 
+  
   useEffect(() => {
     axios
       .get(`http://localhost:9000/user/update/${userid}`)
@@ -27,7 +28,6 @@ export default function Profile() {
       });
   }, [userid]);
 
-  console.log(userData);
 
   return (
     <div className="overflow-x-scroll bg-[#fafafa]">
