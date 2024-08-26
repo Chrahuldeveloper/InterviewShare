@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Blogs,
   Home,
@@ -9,11 +9,19 @@ import {
   UploadExperience,
   WriteBlog,
 } from "./Pages";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import "./App.css";
 
 export default function App() {
   const jwt = localStorage.getItem("jwt");
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (jwt) {
+      navigate("/home");
+    }
+  }, [jwt]);
 
   return (
     <Routes>

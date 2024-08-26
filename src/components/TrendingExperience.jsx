@@ -36,6 +36,20 @@ export default function TrendingExperience() {
     "Ahmedabad",
   ];
 
+  const companies = [
+    "Companies",
+    "Tata Consultancy Services",
+    "Infosys",
+    "Wipro",
+    "Cognizant",
+    "Accenture",
+    "HCL Technologies",
+    "Tech Mahindra",
+    "IBM",
+    "Capgemini",
+    "Mindtree",
+  ];
+
   useEffect(() => {
     const fetchInterviews = async () => {
       try {
@@ -109,6 +123,8 @@ export default function TrendingExperience() {
 
   const totalPages = Math.ceil(filteredData.length / itemsPerPage);
 
+  console.log(paginatedData);
+
   return (
     <>
       {showLoader && <Loader />}
@@ -155,6 +171,19 @@ export default function TrendingExperience() {
               ))}
             </select>
           </div>
+          <div className="border-[1px] border-gray-200 rounded-lg py-2 w-full text-center">
+            <select
+              className="px-12 outline-none"
+              value={selectedLocation}
+              onChange={handleLocationChange}
+            >
+              {companies.map((company, index) => (
+                <option key={index} value={company} className="text-sm">
+                  {company}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
         <div className="flex flex-col items-center justify-center gap-6 my-6 md:justify-start md:items-start ">
           {paginatedData.length > 0 ? (
@@ -163,72 +192,36 @@ export default function TrendingExperience() {
                 to={`/interview/${i._id}`}
                 state={{
                   company: i.company,
-                  companyPic: i.companyPic,
-                  position: i.position,
-                  experience: i.experience,
-                  date: i.date,
-                  name: i.name,
-                  selected: i.selected,
-                  Level: i.Level,
-                  rounds: i.rounds,
-                  CGPA: i.CGPA,
-                  NumberofProblems: i.NumberofProblems,
-                  profilepic: i.profilepic,
-                  interviewPlace: i.interviewPlace,
-                  collage: i.collage,
+                  role: i.role,
+                  salaryRange: i.salaryRange,
+                  location: i.location,
+                  journey: i.journey,
+                  applicationStory: i.applicationStory,
+                  interviewExperience: i.interviewExperience,
+                  preparation: i.preparation,
+                  tip: i.tip,
                   Likes: i.Likes,
                   upvotes: i.upvotes,
                   upvotedBy: i.upvotedBy,
+                  profilePic: i.ProfilePic,
+                  interviewPlace: i.interviewPlace,
+                  collage: i.collage,
                   _id: i._id,
-                  applicationStory: i.applicationStory,
-                  selectionReason: i.selectionReason,
-                  preparation: i.preparation,
-                  tip: i.tip,
                 }}
                 className="w-[80vw] md:w-[50vw] lg:w-[40vw] mx-auto p-5 border-[1px] border-gray-300 rounded-lg cursor-pointer"
               >
                 <div key={idx}>
                   <div className="flex items-center justify-between">
                     <h1 className="text-lg font-semibold">
-                      {i.company} | {i.position}
+                      {i.company} | {i.role}
                     </h1>
-                    <img
-                      src={i.companyPic}
-                      className="w-10 h-10 rounded-full border-[1px] border-gray-300"
-                      alt=""
-                    />
                   </div>
-                  <div className="flex items-center gap-10">
-                    <img
-                      src={i.profilepic}
-                      alt=""
-                      className="object-cover w-10 h-10 rounded-full border-[1px] border-gray-300"
-                    />
-                    <div>
-                      <h1 className="flex items-center gap-3">
-                        <span className="font-semibold">{i.name}</span> |{" "}
-                        <span className="text-sm text-gray-800">
-                          Level {i.Level}
-                        </span>{" "}
-                        |{" "}
-                        {i.selected ? (
-                          <div className="flex items-center space-x-1">
-                            <img
-                              className="w-3.5 h-3.5 rounded-full"
-                              src="https://static.naukimg.com/code360/assets/icons/outcome-selected.svg"
-                              alt=""
-                            />
-                            <h1 className="text-[#70bf81] text-sm font-semibold">
-                              Selected
-                            </h1>
-                          </div>
-                        ) : null}
-                      </h1>
-                      <ul className="flex items-center gap-x-2 gap-y-1.5 mt-2 flex-wrap text-sm text-gray-600">
-                        <li>{i.interviewPlace}</li>|<li>{i.college}</li>|
-                        <li>CGPA {i.CGPA}</li>|<li>{i.rounds} rounds</li>|
-                        <li>{i.NumberofProblems} problems</li>
-                      </ul>
+                  <div>
+                    <div className="space-y-1">
+                      <h1 className="">Upvotes : {i.upvotes} |</h1>
+                      <h1>Location: {i.location}|</h1>
+                      <h1> Collage : {i.college}|</h1>
+                      <h1> SalaryRange: {i.salaryRange}</h1>
                     </div>
                   </div>
                 </div>

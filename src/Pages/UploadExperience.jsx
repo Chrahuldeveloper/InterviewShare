@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Navbar } from "../components";
 
-export default function UploadExperience({ jwt }) {
+export default function UploadExperience() {
   const [company, setCompany] = useState("");
   const [role, setRole] = useState("");
   const [salaryRange, setSalaryRange] = useState("All");
@@ -12,6 +12,8 @@ export default function UploadExperience({ jwt }) {
   const [interviewExperience, setInterviewExperience] = useState("");
   const [preparation, setPreparation] = useState("");
   const [tip, setTip] = useState("");
+
+  const jwt = localStorage.getItem("jwt");
 
   const salaryRanges = [
     "SalaryRanges",
@@ -51,6 +53,11 @@ export default function UploadExperience({ jwt }) {
   ];
 
   const handleSubmit = async () => {
+    if (!jwt) {
+      alert("JWT is missing!");
+      return;
+    }
+
     const interviewData = {
       company,
       role,
@@ -65,7 +72,7 @@ export default function UploadExperience({ jwt }) {
 
     try {
       const response = await axios.post(
-        `http://localhost:9000/interviewUpload/${jwt}`,
+        `http://localhost:9000/upload/interviewUpload/${jwt}`,
         { interview: interviewData }
       );
       alert(response.data);

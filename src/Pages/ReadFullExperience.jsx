@@ -12,7 +12,7 @@ export default function ReadFullExperience() {
 
   const jwt = "66c36c272ad08e112437da05";
 
-  console.log(interview?.upvotedBy)
+  console.log(interview?.upvotedBy);
 
   console.log(interview);
   useEffect(() => {
@@ -39,7 +39,7 @@ export default function ReadFullExperience() {
     <div className="bg-[#fafafa] min-h-screen">
       <Navbar />
       <div className="max-w-md p-5 space-y-2 md:mx-40">
-        <h1 className="text-xl font-semibold">
+        <h1 className="text-2xl font-semibold">
           {interview.company} interview experience
         </h1>
         <p className="text-gray-500">
@@ -60,19 +60,18 @@ export default function ReadFullExperience() {
           <span className="ml-2">{interview.upvotes}</span>
         </div>
         <div className="flex -mt-8 space-x-7">
-          <div>
+          {/* <div>
             <img
               className="w-10 h-10 rounded-full"
               src={interview.companyPic}
               alt={interview.company}
             />
-          </div>
+          </div> */}
           <div className="space-y-2">
             <h1 className="text-xl font-bold">{interview.position}</h1>
             <p className="font-semibold">{interview.company}</p>
             <p className="text-sm font-semibold text-gray-600">
-              {interview.rounds} rounds | {interview.NumberofProblems} Coding
-              problems
+              {interview.salaryRange} | {interview.location}
             </p>
           </div>
         </div>
