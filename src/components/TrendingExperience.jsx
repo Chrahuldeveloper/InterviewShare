@@ -216,11 +216,11 @@ export default function TrendingExperience() {
                       {i.company} | {i.role}
                     </h1>
                   </div>
-                  <div>
+                  <div className="mt-3">
                     <div className="space-y-1">
                       <h1 className="">Upvotes : {i.upvotes} |</h1>
-                      <h1>Location: {i.location}|</h1>
-                      <h1> Collage : {i.college}|</h1>
+                      <h1>Location: {i.location} |</h1>
+                      <h1> Collage : {i.college} |</h1>
                       <h1> SalaryRange: {i.salaryRange}</h1>
                     </div>
                   </div>
