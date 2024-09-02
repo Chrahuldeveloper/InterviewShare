@@ -24,15 +24,14 @@ export default function WriteBlog() {
       img,
       sections,
     };
-
-    console.log(blogData);
-
+  
     try {
+      const token = localStorage.getItem("jwt");
       const response = await axios.post(
-        `http://localhost:9000/blog/66c36c272ad08e112437da05`,
-        { title, img, sections }
+        `http://localhost:9000/blog/${token}`,
+        blogData
       );
-
+  
       if (response.status === 200) {
         alert("Blog uploaded successfully!");
       } else {
@@ -43,6 +42,7 @@ export default function WriteBlog() {
       alert("Error uploading blog.");
     }
   };
+  
 
   return (
     <>
