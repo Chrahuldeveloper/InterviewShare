@@ -5,7 +5,7 @@ import axios from "axios";
 export default function SignupForm() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    Name: "",
+    name: "",
     email: "",
     password: "",
   });
@@ -20,7 +20,7 @@ export default function SignupForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!formData.Name || !formData.email || !formData.password) {
+    if (!formData.name || !formData.email || !formData.password) {
       alert("Please fill in all fields");
       return;
     }
@@ -54,9 +54,9 @@ export default function SignupForm() {
           <label className="font-semibold text-slate-800">Name</label>
           <input
             type="text"
-            name="Name"
+            name="name"
             placeholder="Name"
-            value={formData.Name}
+            value={formData.name}
             onChange={handleChange}
             className="border-[1px] border-gray-300 py-3 px-2 rounded-lg outline-none"
           />

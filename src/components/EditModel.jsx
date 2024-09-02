@@ -8,6 +8,8 @@ export default function EditModel({ user, userid, setisedit }) {
   const [profilepic, setprofilepic] = useState(user.profilePic || "");
 
   const handleSave = async () => {
+
+    
     try {
       const response = await axios.put(
         `http://localhost:9000/user/update/${userid}`,
